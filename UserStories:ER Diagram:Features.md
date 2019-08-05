@@ -40,18 +40,23 @@
 2. Login/Register routes for User. [Route: "/api/v1/login" &&  Route: "/api/v1/register"]
 3. Handle OnBoarading
 4. Create Task(POST)
-5. Assign Task to Team/Individual
-6. Add Teams/Individual to Individual Tasks
-7. See Tasks
+   1. Assign Task to Individual/Team -- reference __id of the individual/team
+   2. Set a deadline to task -- Date
+   3. Priority -- String
+5. Add Teams/Individual to Individual Tasks
+6. See Tasks
 
 #### Frontend:
 
 1. Make Landing Page
-2. Make Login/SignUp Component
+2. Make Login/Register Component
 3. Make OnBoarding
 4. Make DashBoard
-
-
+   1. Add Task
+      1. Assign Task
+      2. Set Deadline to task
+      3. Add n number of Comments to task
+      4. Set Priority to task
 
 
 
