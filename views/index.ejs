@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title><%= title %></title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn2.iconfinder.com/data/icons/nodejs-1/512/nodejs-512.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/bundle.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"
+      integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE="
+      crossorigin="anonymous"
+    />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  </head>
 
-<head>
-  <title><%= title %></title>
-  <link rel="shortcut icon" href="https://cdn2.iconfinder.com/data/icons/nodejs-1/512/nodejs-512.png">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet" />
-  <link rel='stylesheet' href="/static/bundle.css" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-</head>
-
-<body>
-  <div id="root"></div>
-  <script src="/static/bundle.js"></script>
-</body>
-
+  <body>
+    <div id="root"></div>
+    <script
+      type="text/javascript"
+      src="/node_modules/bulma-extensions/bulma-accordion/dist/bulma-accordion.min.js"
+    ></script>
+    <script src="/static/bundle.js"></script>
+  </body>
 </html>
