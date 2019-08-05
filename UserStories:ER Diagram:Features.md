@@ -28,7 +28,7 @@
 
 ### ER diagram:
 
-![](/Users/naman/Downloads/ER Diagram.jpeg)
+![](https://digitaliz.in/wp-content/uploads/2019/08/ER-Diagram.jpeg)
 
 
 
