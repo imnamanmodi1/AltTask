@@ -1,7 +1,3 @@
-[TOC]
-
-
-
 ## User Stories:
 
 > ##### Mentor Name: Prashant
