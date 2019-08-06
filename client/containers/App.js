@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
-import '../scss/index.scss';
-import { getCurrentUser, noToken } from '../actions'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Route } from "react-router-dom";
+import "../scss/index.scss";
+import { getCurrentUser, noToken } from "../actions";
 
-
-
-import HomePage from '../components/HomePage';
+import HomePage from "../components/HomePage";
+import Dashboard from "../components/Dashboard";
+import AllTasks from "../components/AllTasks";
 
 class App extends Component {
-  state = { 
+  state = {
     token: ""
-  }
+  };
 
   componentDidMount() {
-    var token = localStorage.getItem('authToken') || '';
-    if(token) {
-      this.setState({token: token})
-      this.props.dispatch(getCurrentUser())
+    var token = localStorage.getItem("authToken") || "";
+    if (token) {
+      this.setState({ token: token });
+      this.props.dispatch(getCurrentUser());
     } else {
       this.props.dispatch(noToken());
     }
@@ -27,21 +27,16 @@ class App extends Component {
     return (
       <div>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     currentUser: state.currentUser.user
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(App);
-
-
-
-
-
-  
