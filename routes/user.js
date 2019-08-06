@@ -6,6 +6,9 @@ const secret = "pochiisourdog";
 
 var UserModel = require("../models/user");
 
+/* Function to verify token */
+let verifyToken = (req, res, next) => {};
+
 /* GET home page. */
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Home" });
@@ -40,17 +43,30 @@ router.post("/login", (req, res, next) => {
   var { email, password } = req.body;
   UserModel.findOne({ email: email }, (err, userInfo) => {
     if (err) next(err);
+    //if userInfo fetched generate & sign JWT Token
     if (userInfo) {
       if (bcrypt.compareSync(password, userInfo.password)) {
         //generating & signing JWT Token
         const token = jwt.sign({ id: userInfo._id }, secret, {
           expiresIn: "1h"
         });
+        //sending JWT Token in response, when LOGIN SUCCESSFUL
         res.json({
           status: 200,
           success: true,
           message: "USER LOGIN SUCCESSFUL",
-          key: token
+          key: token,
+          userData: userInfo
+        });
+      }
+      //handled error if incase something goes wrong
+      else {
+        //handling error, when LOGIN UNSUCCESSFUL
+        res.json({
+          status: 400,
+          success: false,
+          message: "USER LOGIN UNSUCCESSFUL",
+          description: "Email Id or Password is invalid, please check."
         });
       }
     }
