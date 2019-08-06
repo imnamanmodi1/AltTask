@@ -23,6 +23,7 @@ class SignUp extends Component {
                     className="input"
                     type="text"
                     placeholder="First Name"
+                    autocomplete="new-password"
                   />
                   <span className="icon is-small is-left">
                     <i className="fas fa-user" />
@@ -35,6 +36,7 @@ class SignUp extends Component {
                     className="input"
                     type="text"
                     placeholder="Last Name"
+                    autocomplete="new-password"
                   />
                   <span className="icon is-small is-left">
                     <i className="fas fa-user" />
@@ -52,6 +54,7 @@ class SignUp extends Component {
                 className="input"
                 type="email"
                 placeholder="Email"
+                autocomplete="new-password"
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
@@ -66,6 +69,7 @@ class SignUp extends Component {
                 className="input"
                 type="password"
                 placeholder="Password"
+                autocomplete="new-password"
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-lock" />

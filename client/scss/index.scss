@@ -4,6 +4,11 @@
 .flex {
   display: flex;
 }
+// input:focus,
+// textarea:focus,
+// select:focus {
+//   outline: none !important;
+// }
 //  button styling
 .btn {
   display: block !important;
@@ -50,3 +55,7 @@
 .steps {
   padding: 65px !important;
 }
+
+// Input Box
+$input-focus-border-color: blue;
+$input-focus-box-shadow-color: blue;

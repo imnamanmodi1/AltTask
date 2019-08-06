@@ -27,9 +27,6 @@ class SignIn extends Component {
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
               </span>
-              <span className="icon is-small is-right">
-                <i className="fas fa-check" />
-              </span>
             </p>
           </div>
           <div className="field">
