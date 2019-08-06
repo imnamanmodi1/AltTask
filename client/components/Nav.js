@@ -25,21 +25,21 @@ class Nav extends Component {
                   <NavLink
                     exact
                     activeClassName="active "
-                    className="button is-primary"
+                    className="btn"
                     to="/"
                   >
                     Home
                   </NavLink>
                   <NavLink
                     activeClassName="active "
-                    className="button is-primary"
+                    className="btn"
                     to="/signin"
                   >
                     Sign In
                   </NavLink>
                   <NavLink
                     activeClassName="active "
-                    className="button is-primary"
+                    className="btn"
                     to="/signup"
                   >
                     Sign Up

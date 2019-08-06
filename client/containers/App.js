@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
-import "../scss/index.scss";
 import "../scss/custom-variables.scss";
+import "../scss/index.scss";
 
 import { getCurrentUser, noToken } from "../actions";
 
