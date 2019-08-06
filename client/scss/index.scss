@@ -2,9 +2,10 @@
   text-align: center;
 }
 
+//  button styling
 .btn {
   display: block !important;
-  margin: 10px !important;
+  margin: auto 10px !important;
   background-color: #65c886;
   border: none;
   color: white;
@@ -31,9 +32,8 @@
   }
 }
 
-.navbar {
-  padding: 5px;
-}
+// Nav
+
 .navbar-brand {
   p {
     font-weight: 600;
@@ -41,4 +41,10 @@
     font-size: 25px;
     margin: 10px 10px;
   }
+}
+
+//  Steps
+
+.steps {
+  padding: 65px !important;
 }
