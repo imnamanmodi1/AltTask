@@ -1,6 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  position: relative;
+}
 .App {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 168px; /* height of your footer */
   text-align: center;
 }
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 .flex {
   display: flex;
 }
@@ -55,7 +78,3 @@
 .steps {
   padding: 65px !important;
 }
-
-// Input Box
-$input-focus-border-color: blue;
-$input-focus-box-shadow-color: blue;
