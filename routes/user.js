@@ -7,7 +7,7 @@ const secret = "pochiisourdog";
 var UserModel = require("../models/user");
 
 /* Function to verify token */
-let verifyToken = (req, res, next) => {};
+// let verifyToken = (req, res, next) => {};
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
@@ -41,10 +41,14 @@ router.post("/register", function(req, res, next) {
 router.post("/login", (req, res, next) => {
   //destructured req.body
   var { email, password } = req.body;
-  UserModel.findOne({ email: email }, (err, userInfo) => {
-    if (err) next(err);
+  UserModel.findOne({ email: email }, function(err, userInfo) {
+    //if user email not found in db
+    if (err) {
+      res.json({ status: 400, success: false, message: "User not found" });
+    }
     //if userInfo fetched generate & sign JWT Token
     if (userInfo) {
+      //matching password
       if (bcrypt.compareSync(password, userInfo.password)) {
         //generating & signing JWT Token
         const token = jwt.sign({ id: userInfo._id }, secret, {
@@ -56,7 +60,12 @@ router.post("/login", (req, res, next) => {
           success: true,
           message: "USER LOGIN SUCCESSFUL",
           key: token,
-          userData: userInfo
+          userData: {
+            _id: userInfo._id,
+            email: userInfo.email,
+            firstName: userInfo.firstName,
+            lastName: userInfo.lastName
+          }
         });
       }
       //handled error if incase something goes wrong
@@ -66,7 +75,7 @@ router.post("/login", (req, res, next) => {
           status: 400,
           success: false,
           message: "USER LOGIN UNSUCCESSFUL",
-          description: "Email Id or Password is invalid, please check."
+          description: "Email ID or Password is invalid, please check."
         });
       }
     }
