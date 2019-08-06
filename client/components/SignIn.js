@@ -71,9 +71,6 @@ class SignIn extends Component {
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
               </span>
-              <span className="icon is-small is-right">
-                <i className="fas fa-check" />
-              </span>
             </p>
           </div>
           <div className="field">
@@ -91,7 +88,7 @@ class SignIn extends Component {
               </span>
             </p>
           </div>
-          <div className="field">
+          <div className="field is-grouped is-grouped-left">
             <p className="control">
               <button onClick={this.handleSubmit} className="button is-success">
                 Login
