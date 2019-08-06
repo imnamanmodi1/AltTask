@@ -13,6 +13,7 @@ router.get("/", function(req, res, next) {
 
 /* POST - /user/register - register new user. */
 router.post("/register", function(req, res, next) {
+  //destructured req.body
   var { email, firstName, lastName, password } = req.body;
   UserModel.create(
     {
@@ -27,7 +28,7 @@ router.post("/register", function(req, res, next) {
         res.json({
           status: 200,
           success: true,
-          message: "user registered successfully"
+          message: "USER REGISTERED"
         });
     }
   );
@@ -35,15 +36,22 @@ router.post("/register", function(req, res, next) {
 
 /* POST - /user/login - handle user login */
 router.post("/login", (req, res, next) => {
+  //destructured req.body
   var { email, password } = req.body;
   UserModel.findOne({ email: email }, (err, userInfo) => {
     if (err) next(err);
     if (userInfo) {
       if (bcrypt.compareSync(password, userInfo.password)) {
+        //generating & signing JWT Token
         const token = jwt.sign({ id: userInfo._id }, secret, {
           expiresIn: "1h"
         });
-        res.json({ status: 200, success: true, key: token });
+        res.json({
+          status: 200,
+          success: true,
+          message: "USER LOGIN SUCCESSFUL",
+          key: token
+        });
       }
     }
   });
