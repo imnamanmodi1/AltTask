@@ -4,8 +4,6 @@
 
 > ##### Mentee Name: Naman
 
-
-
 ### Prashant's Stories:
 
 1. Prashant Should be able to Login/Register
@@ -24,23 +22,19 @@
 5. Naman should be able to see reports(how productive he is)
 6. Naman should be able to recieve notifications before deadlines(6 hrs)
 
-
-
 ### ER diagram:
 
 ![](https://digitaliz.in/wp-content/uploads/2019/08/ER-Diagram.jpeg)
-
-
 
 ### SPRINT 1:
 
 #### Backend:
 
 1. Model Creation for Team/Tasks/User/People.
-2. Login/Register routes for User. [Route: "/api/v1/login" &&  Route: "/api/v1/register"]
+2. Login/Register routes for User. [Route: "/api/v1/login" && Route: "/api/v1/register"]
 3. Handle OnBoarading
 4. Create Task(POST)
-   1. Assign Task to Individual/Team -- reference __id of the individual/team
+   1. Assign Task to Individual/Team -- reference \_\_id of the individual/team
    2. Set a deadline to task -- Date
    3. Priority -- String
 5. Add Teams/Individual to Individual Tasks
@@ -57,6 +51,3 @@
       2. Set Deadline to task
       3. Add n number of Comments to task
       4. Set Priority to task
-
-
-

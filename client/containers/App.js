@@ -6,7 +6,8 @@ import { getCurrentUser, noToken } from "../actions";
 
 import HomePage from "../components/HomePage";
 import Dashboard from "../components/Dashboard";
-import AllTasks from "../components/AllTasks";
+import "../scss/custom-variables.scss";
+import "../scss/index.scss";
 
 class App extends Component {
   state = {
