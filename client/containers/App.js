@@ -4,10 +4,12 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import "../scss/custom-variables.scss";
 import "../scss/index.scss";
-
 import { getCurrentUser, noToken } from "../actions";
 
 import HomePage from "../components/HomePage";
+import Dashboard from "../components/Dashboard";
+import "../scss/custom-variables.scss";
+import "../scss/index.scss";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import SignIn from "../components/SignIn";
@@ -37,6 +39,7 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route render={() => <p>Not found</p>} />
           </Switch>
           <Footer />
