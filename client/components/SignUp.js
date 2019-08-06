@@ -15,23 +15,35 @@ class SignUp extends Component {
             Have an account?
           </Link>
 
-          <div className="field">
-            <p className="control has-icons-left has-icons-right">
-              <input
-                onChange={this.handleChange}
-                name="username"
-                className="input"
-                type="text"
-                placeholder="Username"
-              />
-              <span className="icon is-small is-left">
-                <i className="fas fa-envelope" />
-              </span>
-              <span className="icon is-small is-right">
-                <i className="fas fa-check" />
-              </span>
-            </p>
+          <div className="field is-horizontal">
+            <div className="field-body">
+              <div className="field">
+                <p className="control is-expanded has-icons-left">
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder="First Name"
+                  />
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-user" />
+                  </span>
+                </p>
+              </div>
+              <div className="field">
+                <p className="control has-icons-left has-icons-right">
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder="Last Name"
+                  />
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-user" />
+                  </span>
+                </p>
+              </div>
+            </div>
           </div>
+
           <div className="field">
             <p className="control has-icons-left has-icons-right">
               <input
@@ -43,9 +55,6 @@ class SignUp extends Component {
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
-              </span>
-              <span className="icon is-small is-right">
-                <i className="fas fa-check" />
               </span>
             </p>
           </div>
@@ -63,9 +72,9 @@ class SignUp extends Component {
               </span>
             </p>
           </div>
-          <div className="field">
+          <div className="field is-grouped is-grouped-left">
             <p className="control">
-              <button onClick={this.handleClick} className="button is-success">
+              <button onClick={this.handleClick} className="btn">
                 Signup
               </button>
             </p>

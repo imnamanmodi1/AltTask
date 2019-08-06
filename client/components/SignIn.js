@@ -46,9 +46,9 @@ class SignIn extends Component {
               </span>
             </p>
           </div>
-          <div className="field">
+          <div className="field is-grouped is-grouped-left">
             <p className="control">
-              <button onClick={this.handleClick} className="button is-success">
+              <button onClick={this.handleClick} className="btn">
                 Login
               </button>
             </p>
