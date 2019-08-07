@@ -23,17 +23,19 @@ class App extends Component {
     token: ""
   };
 
-  componentDidMount() {
-    var token = localStorage.getItem("authToken") || "";
-    if (token) {
-      this.setState({ token: token });
-      this.props.dispatch(getCurrentUser());
-    } else {
-      this.props.dispatch(noToken());
-    }
-  }
+  // componentDidMount() {
+  //   var token = localStorage.getItem("authToken") || "";
+  //   if (token) {
+  //     this.setState({ token: token });
+  //     this.props.dispatch(getCurrentUser());
+  //   } else {
+  //     this.props.dispatch(noToken());
+  //   }
+  // }
 
   render() {
+    const { user } = this.props;
+    console.log(user, "in app");
     return (
       <Router>
         <div className="App">
@@ -59,7 +61,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser.user
+    user: state.user
   };
 };
 

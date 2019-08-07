@@ -1,11 +1,43 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import axios from "axios";
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: ""
+    };
   }
+
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSubmit = () => {
+    const url = "http://localhost:3000/user/register";
+    axios
+      .post(url, {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(function(response) {
+        console.log(response);
+        // this.props.dispatch(userLogin(userInfo));
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <>
@@ -22,8 +54,10 @@ class SignUp extends Component {
                   <input
                     className="input"
                     type="text"
+                    onChange={this.handleChange}
+                    name="firstName"
                     placeholder="First Name"
-                    autocomplete="new-password"
+                    autoComplete="new-password"
                   />
                   <span className="icon is-small is-left">
                     <i className="fas fa-user" />
@@ -34,9 +68,11 @@ class SignUp extends Component {
                 <p className="control has-icons-left has-icons-right">
                   <input
                     className="input"
+                    onChange={this.handleChange}
                     type="text"
+                    name="lastName"
                     placeholder="Last Name"
-                    autocomplete="new-password"
+                    autoComplete="new-password"
                   />
                   <span className="icon is-small is-left">
                     <i className="fas fa-user" />
@@ -54,7 +90,7 @@ class SignUp extends Component {
                 className="input"
                 type="email"
                 placeholder="Email"
-                autocomplete="new-password"
+                autoComplete="new-password"
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
@@ -69,7 +105,7 @@ class SignUp extends Component {
                 className="input"
                 type="password"
                 placeholder="Password"
-                autocomplete="new-password"
+                autoComplete="new-password"
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-lock" />
@@ -78,7 +114,7 @@ class SignUp extends Component {
           </div>
           <div className="field is-grouped is-grouped-left">
             <p className="control">
-              <button onClick={this.handleClick} className="btn">
+              <button onClick={this.handleSubmit} className="btn">
                 Signup
               </button>
             </p>
@@ -89,4 +125,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default connect()(SignUp);
