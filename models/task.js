@@ -2,9 +2,12 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var TaskModel = new Schema({
-  task: {
+  title: {
     type: String,
     required: true
+  },
+  content: {
+    type: String
   },
   deadline: {
     type: Date
