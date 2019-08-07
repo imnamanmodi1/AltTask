@@ -1,10 +1,30 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addTask } from "../actions/tasks";
 
 class AdminAddTask extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      title: "",
+      description: "",
+      deadline: "",
+      user: ""
+    };
   }
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleAssign = () => {
+    const { title, description, deadline, user } = this.state;
+    const data = { title, description, deadline, user };
+    this.props.dispatch(addTask(data));
+  };
+
   render() {
     return (
       <>
@@ -14,7 +34,7 @@ class AdminAddTask extends Component {
               <p className="control">
                 <input
                   onChange={this.handleChange}
-                  name="taskname"
+                  name="title"
                   className="input"
                   type="text"
                   placeholder="Task Name"
@@ -29,7 +49,8 @@ class AdminAddTask extends Component {
                   className="textarea"
                   placeholder="Task Content"
                   autoComplete="new-password"
-                  name="taskContent"
+                  onChange={this.handleChange}
+                  name="description"
                 />
               </div>
             </div>
@@ -38,7 +59,7 @@ class AdminAddTask extends Component {
               <p className="control">
                 <input
                   onChange={this.handleChange}
-                  name="stakeholder"
+                  name="user"
                   className="input"
                   type="search"
                   placeholder="Stakeholder's Name"
@@ -53,7 +74,7 @@ class AdminAddTask extends Component {
                   <p className="control">
                     <input
                       onChange={this.handleChange}
-                      name="date"
+                      name="deadline"
                       className="input"
                       type="date"
                       placeholder="Select Date"
@@ -87,4 +108,4 @@ class AdminAddTask extends Component {
   }
 }
 
-export default AdminAddTask;
+export default connect()(AdminAddTask);

@@ -6,6 +6,7 @@ var logger = require("morgan");
 var helmet = require("helmet");
 var expressStaticGzip = require("express-static-gzip");
 var mongoose = require("mongoose");
+var cors = require("cors");
 
 //user -- mentor API Router
 var mentorRouter = require("./routes/api/users");
@@ -15,6 +16,7 @@ var userRouter = require("./routes/user");
 var app = express();
 
 app.use(helmet());
+app.use(cors());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
