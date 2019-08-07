@@ -20,20 +20,6 @@ class SignIn extends Component {
   };
 
   handleSubmit = () => {
-    const url = "http://localhost:3000/user/login";
-    axios
-      .post(url, {
-        email: this.state.email,
-        password: this.state.password
-      })
-      .then(userInfo => {
-        console.log(userInfo);
-        this.props.dispatch(userLogin(userInfo));
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-
     // fetch(url, {
     //   method: "POST",
     //   headers: {
@@ -46,6 +32,7 @@ class SignIn extends Component {
     //     console.log(userInfo);
     //     this.props.dispatch(userLogin(userInfo));
     //   });
+    this.props.dispatch(userLogin(this.state));
   };
 
   render() {
