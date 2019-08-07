@@ -11,6 +11,7 @@ export const userLogin = data => {
         const { data } = userInfo;
         dispatch({ type: "USER_LOGIN", value: data.userData, token: data.key });
         localStorage.setItem("token", userInfo.data.key);
+        localStorage.setItem("user", JSON.stringify(userInfo.data.userData));
       })
       .catch(function(error) {
         console.log(error);

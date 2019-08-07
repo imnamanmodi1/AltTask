@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { userLogin } from "../actions/user";
 import { getCurrentUser } from "../actions/index";
 import axios from "axios";
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
-    console.log(props, "this are props");
     this.state = {
       email: "",
       password: ""
