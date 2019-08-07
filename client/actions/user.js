@@ -18,3 +18,5 @@ export const userLogin = data => {
       });
   };
 };
+
+export const userLogout = () => {};

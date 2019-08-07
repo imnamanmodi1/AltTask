@@ -34,6 +34,7 @@ class SignIn extends Component {
     //     this.props.dispatch(userLogin(userInfo));
     //   });
     this.props.dispatch(userLogin(this.state));
+    this.props.history.push("/admin");
   };
 
   render() {
