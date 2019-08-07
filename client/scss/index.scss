@@ -27,12 +27,11 @@ footer {
 .flex {
   display: flex;
 }
-// input:focus,
-// textarea:focus,
-// select:focus {
-//   outline: none !important;
-// }
-//  button styling
+
+.nav-buttons {
+  justify-content: space-between !important;
+}
+
 .btn {
   display: block !important;
   margin: auto 10px !important;
@@ -43,7 +42,7 @@ footer {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 2px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s;
