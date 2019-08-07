@@ -29,12 +29,11 @@ footer {
 }
 
 .nav-buttons {
-  justify-content: space-between !important;
+  justify-content: flex-start !important;
 }
 
 .btn {
   display: block !important;
-  margin: auto 10px !important;
   background-color: #65c886;
   border: none;
   color: white;
@@ -62,6 +61,15 @@ footer {
 }
 
 // Nav
+.navbar {
+  .btn {
+    margin: auto 10px !important;
+  }
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.75) !important;
+}
+.activeNav {
+  background-color: #c8656a;
+}
 
 .navbar-brand {
   p {
@@ -76,4 +84,23 @@ footer {
 
 .steps {
   padding: 65px !important;
+}
+
+// Admin Main Dashboard
+
+.menu-container {
+  background: #353535 !important;
+  min-height: 100vh;
+  width: 200px !important;
+  padding-top: 16px !important;
+}
+
+// sign up sign in
+
+.signin-container {
+  margin-top: 20%;
+}
+
+.signup-container {
+  margin-top: 20%;
 }
