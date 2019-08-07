@@ -12,6 +12,9 @@
 4. Prashant should be able to see all tasks created/assigned/completed.
 5. Prashant should be able to recieve notification when anyone marks task as complete.
 6. Prashant should be able to assign deadlines(date & time) to task created.
+7. Prashant should belong to an Organisation,
+8. Prashant can have multiple teams,
+9. Prashant have to share organisation contacts & teams with other mentors in organisation
 
 ### Naman's Stories:
 
