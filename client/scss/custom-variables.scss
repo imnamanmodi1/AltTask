@@ -32,11 +32,18 @@ $input-focus-box-shadow-color: transparent;
 $box-background-color: $beige-light;
 // Navbar
 $navbar-background-color: $dark;
+$navbar-box-shadow-size: 0 8px 0 0;
+// $navbar-box-shadow-color: red;
 // Footer
 $footer-background-color: $dark;
 $footer-padding: 3rem 1.5rem 3rem;
-// $menu-item-hover-background-color: $green;
+$menu-item-hover-background-color: $green;
 $menu-item-active-background-color: #c8656a;
+$menu-item-radius: none;
+$menu-label-color: $green;
+$menu-label-font-size: 1rem;
+$menu-list-link-padding: 0.5em 1em 0.5em 3.5em;
+$menu-nested-list-padding-left: 0;
 
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/bulma.sass";
