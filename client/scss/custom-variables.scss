@@ -17,7 +17,7 @@ $family-sans-serif: "Nunito", sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: $green;
-$link: $green;
+$link: white;
 // $widescreen-enabled: false;
 // $fullhd-enabled: false;
 
@@ -35,6 +35,8 @@ $navbar-background-color: $dark;
 // Footer
 $footer-background-color: $dark;
 $footer-padding: 3rem 1.5rem 3rem;
+// $menu-item-hover-background-color: $green;
+$menu-item-active-background-color: #c8656a;
 
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/bulma.sass";
