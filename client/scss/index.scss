@@ -1,8 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  position: relative;
+}
 .App {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 168px; /* height of your footer */
   text-align: center;
 }
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
-//  button styling
+.flex {
+  display: flex;
+}
+
+.nav-buttons {
+  justify-content: space-between !important;
+}
+
 .btn {
   display: block !important;
   margin: auto 10px !important;
@@ -13,7 +42,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 2px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s;

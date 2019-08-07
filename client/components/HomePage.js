@@ -8,12 +8,8 @@ class HomePage extends Component {
   render() {
     return (
       <>
-        <header>
-          <Nav />
-          <Hero />
-        </header>
+        <Hero />
         <Steps />
-        <Footer />
       </>
     );
   }

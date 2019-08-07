@@ -6,6 +6,9 @@ const secret = "pochiisourdog";
 
 var UserModel = require("../models/user");
 
+/* Function to verify token */
+// let verifyToken = (req, res, next) => {};
+
 /* GET home page. */
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Home" });
@@ -13,6 +16,7 @@ router.get("/", function(req, res, next) {
 
 /* POST - /user/register - register new user. */
 router.post("/register", function(req, res, next) {
+  //destructured req.body
   var { email, firstName, lastName, password } = req.body;
   UserModel.create(
     {
@@ -27,7 +31,7 @@ router.post("/register", function(req, res, next) {
         res.json({
           status: 200,
           success: true,
-          message: "user registered successfully"
+          message: "USER REGISTERED"
         });
     }
   );
@@ -35,15 +39,44 @@ router.post("/register", function(req, res, next) {
 
 /* POST - /user/login - handle user login */
 router.post("/login", (req, res, next) => {
+  //destructured req.body
   var { email, password } = req.body;
-  UserModel.findOne({ email: email }, (err, userInfo) => {
-    if (err) next(err);
+  UserModel.findOne({ email: email }, function(err, userInfo) {
+    //if user email not found in db
+    if (err) {
+      res.json({ status: 400, success: false, message: "User not found" });
+    }
+    //if userInfo fetched generate & sign JWT Token
     if (userInfo) {
+      //matching password
       if (bcrypt.compareSync(password, userInfo.password)) {
+        //generating & signing JWT Token
         const token = jwt.sign({ id: userInfo._id }, secret, {
           expiresIn: "1h"
         });
-        res.json({ status: 200, success: true, key: token });
+        //sending JWT Token in response, when LOGIN SUCCESSFUL
+        res.json({
+          status: 200,
+          success: true,
+          message: "USER LOGIN SUCCESSFUL",
+          key: token,
+          userData: {
+            _id: userInfo._id,
+            email: userInfo.email,
+            firstName: userInfo.firstName,
+            lastName: userInfo.lastName
+          }
+        });
+      }
+      //handled error if incase something goes wrong
+      else {
+        //handling error, when LOGIN UNSUCCESSFUL
+        res.json({
+          status: 400,
+          success: false,
+          message: "USER LOGIN UNSUCCESSFUL",
+          description: "Email ID or Password is invalid, please check."
+        });
       }
     }
   });
