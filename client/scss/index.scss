@@ -34,7 +34,6 @@ footer {
 
 .btn {
   display: block !important;
-  margin: auto 10px !important;
   background-color: #65c886;
   border: none;
   color: white;
@@ -62,6 +61,14 @@ footer {
 }
 
 // Nav
+.navbar {
+  .btn {
+    margin: auto 10px !important;
+  }
+}
+.activeNav {
+  background-color: #c8656a;
+}
 
 .navbar-brand {
   p {
@@ -76,4 +83,20 @@ footer {
 
 .steps {
   padding: 65px !important;
+}
+
+// Admin Main Dashboard
+
+.mainDashboard {
+  margin-top: 40px;
+}
+
+// sign up sign in
+
+.signin-container {
+  margin-top: 20%;
+}
+
+.signup-container {
+  margin-top: 20%;
 }

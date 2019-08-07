@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const rootUrl = "http://localhost:3000/api/v1";
+const rootUrl = "http://localhost:3000/";
 
 const setTokenToAxios = token => {
   const newToken = localStorage.getItem("authToken") || "";
@@ -10,7 +10,7 @@ const setTokenToAxios = token => {
 export const getCurrentUser = () => {
   return dispatch => {
     axios
-      .get(`${rootUrl}/users/me`)
+      .post(`${rootUrl}/user/login`)
       .then(res => {
         dispatch({
           type: "USER_LOGIN_SUCCESS",
