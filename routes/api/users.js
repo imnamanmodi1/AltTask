@@ -1,5 +1,7 @@
 var express = require("express");
 var router = express.Router();
+var jwt = require("jsonwebtoken");
+
 var Task = require("../../models/task");
 var User = require("../../models/user");
 var Organisation = require("../../models/organisation");
@@ -21,8 +23,51 @@ var Team = require("../../models/team");
 /* /api/v1/users/teams/:id - GET ALL TEAMS OF PARTICULAR USER */
 /* /api/v1/users/teams/create/:id - POST, CREATE NEW TEAM FOR A PARTICULAR USER */
 
+/* VERIFY TOKEN */
+/* /api/v1/users/verify-token - GET -> VERIFIES TOKEN & RETURNS THE CURRENT USER FROM TOKEN */
+
+/* FUNCTION TO VERIFY TOKEN */
+/* This function requires following in request headers -> authorization: Bearer ${token}  */
+const verifyToken = (req, res, next) => {
+  if (typeof req.headers.authorization !== "undefined") {
+    const secret = "pochiisourdog";
+    let token = req.headers.authorization.split(" ")[1];
+    jwt.verify(token, secret, (err, userData) => {
+      if (err) {
+        res.json({ status: 400, success: false, message: "INVALID TOKEN" });
+      }
+      if (userData) {
+        User.findOne({ _id: userData.id }, (err, user) => {
+          if (err) {
+            res.json({
+              status: 400,
+              success: false,
+              message: "UNAUTHORIZED/INVALID TOKEN"
+            });
+          }
+          if (user) {
+            req.body.user = user;
+            next();
+          }
+        }).select("-password");
+      }
+    });
+  }
+};
+
+/* VERIFY TOKEN ROUTE TO RETURN USER DETAILS WITH TOKEN VERIFICATION */
+router.get("/verify-token", verifyToken, (req, res, next) => {
+  let { user } = req.body;
+  res.json({
+    status: 200,
+    success: true,
+    message: "TOKEN IS VALID",
+    user: user
+  });
+});
+
 /* GET ALL USERS */
-router.get("/", (req, res, next) => {
+router.get("/", verifyToken, (req, res, next) => {
   User.find({}, (err, users) => {
     if (err) {
       res.json({
@@ -38,7 +83,7 @@ router.get("/", (req, res, next) => {
 });
 
 /* GET A PARTICULAR USER DETAILS */
-router.get("/:id", (req, res, next) => {
+router.get("/:id", verifyToken, (req, res, next) => {
   var id = req.params.id;
   console.log(id, "this is id");
   User.findOne({ _id: id }, (err, user) => {
@@ -63,7 +108,7 @@ router.get("/:id", (req, res, next) => {
 });
 
 /* GET ALL TASKS OF PARTICULAR USER */
-router.get("/tasks/:id", (req, res, next) => {
+router.get("/tasks/:id", verifyToken, (req, res, next) => {
   var id = req.params.id;
   Task.find({ user: id }, (err, filteredTasks) => {
     if (err) {
@@ -90,7 +135,7 @@ router.get("/tasks/:id", (req, res, next) => {
 /* deadline - DATE */
 /* user - AUTOMATIC USER ASSIGNMENT FROM /:id in URL */
 /* POST, CREATE NEW TASKS FOR A PARTICULAR USER */
-router.post("/tasks/create/:id", (req, res, next) => {
+router.post("/tasks/create/:id", verifyToken, (req, res, next) => {
   var id = req.params.id;
   var { title, content, deadline } = req.body;
   Task.create(
@@ -113,7 +158,7 @@ router.post("/tasks/create/:id", (req, res, next) => {
 });
 
 /* GET ALL ORGANISATIONS OF PARTICULAR USER */
-router.get("/organisations/:id", (req, res, next) => {
+router.get("/organisations/:id", verifyToken, (req, res, next) => {
   var id = req.params.id;
   Organisation.find({ user: id }, (err, filteredOrganisations) => {
     if (err) {
@@ -138,7 +183,7 @@ router.get("/organisations/:id", (req, res, next) => {
 /* title - STRING */
 /* user - AUTOMATIC USER ASSIGNMENT FROM /:id in URL */
 /* POST, CREATE NEW ORGANISATIONS FOR A PARTICULAR USER */
-router.post("/organisations/create/:id", (req, res, next) => {
+router.post("/organisations/create/:id", verifyToken, (req, res, next) => {
   var id = req.params.id;
   var { title } = req.body;
   Organisation.create(
@@ -159,7 +204,7 @@ router.post("/organisations/create/:id", (req, res, next) => {
 });
 
 /* GET ALL TEAMS OF PARTICULAR USER */
-router.get("/teams/:id", (req, res, next) => {
+router.get("/teams/:id", verifyToken, (req, res, next) => {
   var id = req.params.id;
   Team.find({ userCreated: id }, (err, filteredTeams) => {
     if (err) {
@@ -184,7 +229,7 @@ router.get("/teams/:id", (req, res, next) => {
 /* title - STRING */
 /* user - AUTOMATIC USER ASSIGNMENT FROM /:id in URL */
 /* POST, CREATE NEW TEAM FOR A PARTICULAR USER */
-router.post("/teams/create/:id", (req, res, next) => {
+router.post("/teams/create/:id", verifyToken, (req, res, next) => {
   var id = req.params.id;
   var { title } = req.body;
   Team.create(
