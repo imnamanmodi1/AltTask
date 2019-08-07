@@ -21,7 +21,7 @@ class Nav extends Component {
 
             <div className="navbar-end">
               <div className="navbar-item">
-                <div className="flex">
+                <div className="flex nav-buttons">
                   <NavLink
                     exact
                     activeClassName="active "
