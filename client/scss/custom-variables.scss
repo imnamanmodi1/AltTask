@@ -17,12 +17,12 @@ $family-sans-serif: "Nunito", sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: $green;
-$link: $pink;
+$link: $green;
 // $widescreen-enabled: false;
 // $fullhd-enabled: false;
 
 // Update some of Bulma's component variables
-$body-background-color: $dark;
+// $body-background-color: $dark;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
@@ -30,9 +30,11 @@ $input-shadow: none;
 $input-focus-border-color: transparent;
 $input-focus-box-shadow-color: transparent;
 
-// Custom variables
+// Navbar
 $navbar-background-color: $dark;
-
+// Footer
+$footer-background-color: $dark;
+$footer-padding: 3rem 1.5rem 3rem;
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/bulma.sass";
 @import "../../node_modules/bulma-extensions/src/sass/index.sass";
