@@ -26,9 +26,9 @@ class SignIn extends Component {
         email: this.state.email,
         password: this.state.password
       })
-      .then(function(userInfo) {
+      .then(userInfo => {
         console.log(userInfo);
-        // this.props.dispatch(userLogin(userInfo));
+        this.props.dispatch(userLogin(userInfo));
       })
       .catch(function(error) {
         console.log(error);
