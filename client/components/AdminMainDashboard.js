@@ -19,8 +19,8 @@ class AdminMainDashboard extends Component {
   render() {
     return (
       <>
-        <div className="container">
-          <div className="columns">
+        <div className="container mainDashboard">
+          <div className="columns ">
             <div className="column is-one-quarter">
               <aside className="menu">
                 <p className="menu-label">General</p>

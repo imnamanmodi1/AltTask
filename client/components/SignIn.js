@@ -41,47 +41,52 @@ class SignIn extends Component {
     return (
       <>
         <div className="container has-text-centered column is-half is-offset-one-quarter">
-          <h2 className="subtitle">Sign in</h2>
-          <Link className="is-primary" to="/signup">
-            Need an account?
-          </Link>
+          <div className="box signin-container">
+            <h2 className="subtitle">Sign in</h2>
+            <Link className="is-primary" to="/signup">
+              Need an account?
+            </Link>
 
-          <div className="field">
-            <p className="control has-icons-left has-icons-right">
-              <input
-                onChange={this.handleChange}
-                name="email"
-                className="input"
-                value={email}
-                type="email"
-                placeholder="Email"
-              />
-              <span className="icon is-small is-left">
-                <i className="fas fa-envelope" />
-              </span>
-            </p>
-          </div>
-          <div className="field">
-            <p className="control has-icons-left">
-              <input
-                onChange={this.handleChange}
-                name="password"
-                className="input"
-                type="password"
-                value={password}
-                placeholder="Password"
-              />
-              <span className="icon is-small is-left">
-                <i className="fas fa-lock" />
-              </span>
-            </p>
-          </div>
-          <div className="field is-grouped is-grouped-left">
-            <p className="control">
-              <button onClick={this.handleSubmit} className="button is-success">
-                Login
-              </button>
-            </p>
+            <div className="field">
+              <p className="control has-icons-left has-icons-right">
+                <input
+                  onChange={this.handleChange}
+                  name="email"
+                  className="input"
+                  value={email}
+                  type="email"
+                  placeholder="Email"
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope" />
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  onChange={this.handleChange}
+                  name="password"
+                  className="input"
+                  type="password"
+                  value={password}
+                  placeholder="Password"
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock" />
+                </span>
+              </p>
+            </div>
+            <div className="field is-grouped is-grouped-left">
+              <p className="control">
+                <button
+                  onClick={this.handleSubmit}
+                  className="button is-success"
+                >
+                  Login
+                </button>
+              </p>
+            </div>
           </div>
         </div>
       </>
