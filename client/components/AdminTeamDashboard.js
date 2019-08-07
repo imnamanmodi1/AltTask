@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class AdminDashboard extends Component {
+class AdminTeamDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-    return <>Hi this is admin dashboard</>;
+    return <>Hi I am Admin Team Dashboard</>;
   }
 }
 
-export default AdminDashboard;
+export default AdminTeamDashboard;
