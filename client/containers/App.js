@@ -13,11 +13,11 @@ import Footer from "../components/Footer";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import Dashboard from "../components/Dashboard";
-import AdminDashboard from "../components/AdminMainDashboard";
-import UserDashboard from "../components/UserDashboard";
+import AdminDashboard from "../components/AdminDashboard";
 import AdminMainDashboard from "../components/AdminMainDashboard";
-// import AdminAddTask from "../components/AdminAddTask";
-// import AdminTasks from "../components/AdminTasks";
+import UserDashboard from "../components/UserDashboard";
+import AdminAddTask from "../components/AdminAddTask";
+import AdminTasks from "../components/AdminTasks";
 
 class App extends Component {
   state = {
@@ -46,6 +46,8 @@ class App extends Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/admin" component={AdminMainDashboard} />
             <Route path="/user" component={UserDashboard} />
+            <Route path="/admin/add-task" component={AdminAddTask} />
+            {/* <Route path="/admin/tasks" component={AdminTasks} /> */}
 
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
