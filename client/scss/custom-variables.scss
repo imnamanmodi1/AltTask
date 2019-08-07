@@ -26,9 +26,13 @@ $body-background-color: $dark;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
+// Input Box
+$input-focus-border-color: transparent;
+$input-focus-box-shadow-color: transparent;
 
 // Custom variables
 $navbar-background-color: $dark;
+$footer-background-color: $brown;
 
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/bulma.sass";
