@@ -7,8 +7,9 @@ var helmet = require("helmet");
 var expressStaticGzip = require("express-static-gzip");
 var mongoose = require("mongoose");
 
+//user -- mentor API Router
+var mentorRouter = require("./routes/api/users");
 var indexRouter = require("./routes/index");
-var apiRouter = require("./routes/api");
 var userRouter = require("./routes/user");
 
 var app = express();
@@ -68,9 +69,9 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Route handler
-app.use("/api/v1", apiRouter); // api route handler
+app.use("/api/v1/users", mentorRouter); // user - mentor api route handler
 app.use("/", indexRouter); // react handler
-app.use("/user", userRouter); // react handler
+app.use("/user", userRouter); // user handler
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

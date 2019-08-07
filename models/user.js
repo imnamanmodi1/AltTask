@@ -22,6 +22,16 @@ var UserModel = new Schema(
       type: String,
       required: true
     },
+    organisation: {
+      type: Schema.Types.ObjectId,
+      ref: "Organisation"
+    },
+    teams: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Team"
+      }
+    ],
     tasks: [
       {
         type: Schema.Types.ObjectId,
