@@ -1,21 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { userLogin } from "../actions/user";
+import { getCurrentUser } from "../actions/index";
 import axios from "axios";
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
+    console.log(props, "this are props");
     this.state = {
       email: "",
       password: ""
     };
   }
 
-  handleChange = ({ target: { name, value } }) => {
+  handleChange = e => {
     this.setState({
-      [name]: value
+      [e.target.name]: e.target.value
     });
   };
 
@@ -26,26 +27,13 @@ class SignIn extends Component {
         email: this.state.email,
         password: this.state.password
       })
-      .then(function(userInfo) {
+      .then(userInfo => {
         console.log(userInfo);
-        // this.props.dispatch(userLogin(userInfo));
+        this.props.dispatch(userLogin(userInfo));
       })
       .catch(function(error) {
         console.log(error);
       });
-
-    // fetch(url, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({ user: this.state })
-    // })
-    //   .then(res => res.json())
-    //   .then(userInfo => {
-    //     console.log(userInfo);
-    //     this.props.dispatch(userLogin(userInfo));
-    //   });
   };
 
   render() {
