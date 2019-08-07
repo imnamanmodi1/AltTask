@@ -79,10 +79,7 @@ class SignIn extends Component {
             </div>
             <div className="field is-grouped is-grouped-left">
               <p className="control">
-                <button
-                  onClick={this.handleSubmit}
-                  className="button is-success"
-                >
+                <button onClick={this.handleSubmit} className="btn">
                   Login
                 </button>
               </p>

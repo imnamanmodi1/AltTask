@@ -116,7 +116,7 @@ class SignUp extends Component {
             <div className="field is-grouped is-grouped-left">
               <p className="control">
                 <button onClick={this.handleSubmit} className="btn">
-                  Signup
+                  Sign Up
                 </button>
               </p>
             </div>
