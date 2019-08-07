@@ -19,13 +19,13 @@ class AdminMainDashboard extends Component {
   render() {
     return (
       <>
-        <div className="container mainDashboard">
+        <div className=" mainDashboard">
           <div className="columns ">
-            <div className="column is-one-quarter">
-              <aside className="menu">
-                <p className="menu-label">General</p>
+            <div className="column is-one-quarter ">
+              <aside className="menu menu-container">
+                <p className="menu-label ">General</p>
                 <ul className="menu-list ">
-                  <li>
+                  <li className="has-text-left">
                     <NavLink
                       exact
                       className={
@@ -38,7 +38,7 @@ class AdminMainDashboard extends Component {
                   </li>
                 </ul>
                 <ul className="menu-list ">
-                  <li>
+                  <li className="has-text-left">
                     <NavLink
                       exact
                       className={
@@ -53,7 +53,7 @@ class AdminMainDashboard extends Component {
                   </li>
                 </ul>
                 <ul className="menu-list ">
-                  <li>
+                  <li className="has-text-left">
                     <NavLink
                       exact
                       className={
@@ -66,7 +66,7 @@ class AdminMainDashboard extends Component {
                   </li>
                 </ul>
                 <ul className="menu-list ">
-                  <li>
+                  <li className="has-text-left">
                     <NavLink
                       exact
                       className={
@@ -79,7 +79,7 @@ class AdminMainDashboard extends Component {
                   </li>
                 </ul>
                 <ul className="menu-list">
-                  <li>
+                  <li className="has-text-left">
                     <NavLink
                       exact
                       onClick={() => this.handleClick("tasks")}
