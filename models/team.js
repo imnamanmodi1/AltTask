@@ -1,4 +1,4 @@
-var mongoose = require(mongoose);
+var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var TeamModel = new Schema(
@@ -7,12 +7,13 @@ var TeamModel = new Schema(
       type: String,
       required: true
     },
-    teamCreatedBy: {
-      type: String
+    userCreated: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
     },
     members: [
       {
-        type: Schema.Types.ObjectID,
+        type: Schema.Types.ObjectId,
         ref: "User"
       }
     ]

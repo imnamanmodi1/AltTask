@@ -16,6 +16,10 @@ var OrganisationModel = new Schema(
     totalMembers: {
       type: Number,
       default: 0
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
     }
   },
   { timestamps: true }
