@@ -4,7 +4,9 @@ import { NavLink } from "react-router-dom";
 class Nav extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      activeTab: "home"
+    };
   }
   render() {
     return (
@@ -24,21 +26,21 @@ class Nav extends Component {
                 <div className="flex nav-buttons">
                   <NavLink
                     exact
-                    activeClassName="active "
+                    activeClassName="activeNav "
                     className="btn"
                     to="/"
                   >
                     Home
                   </NavLink>
                   <NavLink
-                    activeClassName="active "
+                    activeClassName="activeNav "
                     className="btn"
                     to="/signin"
                   >
                     Sign In
                   </NavLink>
                   <NavLink
-                    activeClassName="active "
+                    activeClassName="activeNav "
                     className="btn"
                     to="/signup"
                   >

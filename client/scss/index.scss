@@ -62,7 +62,9 @@ footer {
 }
 
 // Nav
-
+.activeNav {
+  background-color: #c8656a;
+}
 .navbar-brand {
   p {
     font-weight: 600;
@@ -76,4 +78,20 @@ footer {
 
 .steps {
   padding: 65px !important;
+}
+
+// Admin Main Dashboard
+
+.mainDashboard {
+  margin-top: 40px;
+}
+
+// sign up sign in
+
+.signin-container {
+  margin-top: 20%;
+}
+
+.signup-container {
+  margin-top: 20%;
 }
