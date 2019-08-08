@@ -71,14 +71,6 @@ const LoggedInNav = props => {
               >
                 Home
               </NavLink>
-              <NavLink
-                exact
-                activeClassName="activeNav "
-                className="btn"
-                to="/#"
-              >
-                {`Hi ${props.username}`}
-              </NavLink>
             </div>
           </div>
         </div>
@@ -110,18 +102,19 @@ class Nav extends Component {
   //   }
   // }
 
-  handleNav = () => {
-    this.props.nameAsProps.user != null
-      ? this.setState({ isLoggedIn: true })
-      : this.setState({ isLoggedIn: false });
-  };
+  // handleNav = () => {
+  //   this.props.nameAsProps.user
+  //     ? this.setState({ isLoggedIn: true })
+  //     : this.setState({ isLoggedIn: false });
+  // };
   render() {
+    console.log(this.props.nameAsProps.user, "this is user from store");
     return (
       <>
-        {this.state.isLoggedIn == false ? (
+        {this.props.nameAsProps.user == null ? (
           <LoggedOutNav />
         ) : (
-          <LoggedInNav username={this.state.user.firstName} />
+          <LoggedInNav />
         )}
       </>
     );
