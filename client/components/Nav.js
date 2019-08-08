@@ -103,11 +103,7 @@ class Nav extends Component {
   // }
 
   // handleNav = () => {
-<<<<<<< HEAD
   //   this.props.nameAsProps.user
-=======
-  //   this.props.nameAsProps.user != null
->>>>>>> 1b91e2c4d6dfb5fcc93028c80e3db6038c6d855e
   //     ? this.setState({ isLoggedIn: true })
   //     : this.setState({ isLoggedIn: false });
   // };
