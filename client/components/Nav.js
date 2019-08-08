@@ -48,7 +48,7 @@ const LoggedOutNav = () => {
   );
 };
 
-const LoggedInNav = () => {
+const LoggedInNav = props => {
   return (
     <div className="navbar" role="navigation" aria-label="main navigation">
       <div className="container">
@@ -103,11 +103,12 @@ class Nav extends Component {
   // }
 
   // handleNav = () => {
-  //   this.props.nameAsProps.user != null
+  //   this.props.nameAsProps.user
   //     ? this.setState({ isLoggedIn: true })
   //     : this.setState({ isLoggedIn: false });
   // };
   render() {
+    console.log(this.props.nameAsProps.user, "this is user from store");
     return (
       <>
         {this.props.nameAsProps.user == null ? (
@@ -123,7 +124,7 @@ class Nav extends Component {
 function mapStateToProps(state) {
   console.log(state, "in nav");
   return {
-    nameAsProps: state.getUser
+    nameAsProps: state.user
   };
 }
 
