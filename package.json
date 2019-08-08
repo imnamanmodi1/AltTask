@@ -8,6 +8,7 @@
     "clean": "rimraf dist/bundle/"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
     "bulma": "^0.7.5",
@@ -23,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.11",
     "morgan": "~1.9.0",
+    "nodemon": "^1.19.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

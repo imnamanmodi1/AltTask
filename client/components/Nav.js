@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 import axios from "axios";
 
 const LoggedOutNav = () => {
@@ -47,7 +48,7 @@ const LoggedOutNav = () => {
   );
 };
 
-const LoggedInNav = () => {
+const LoggedInNav = props => {
   return (
     <div className="navbar" role="navigation" aria-label="main navigation">
       <div className="container">
@@ -88,29 +89,43 @@ class Nav extends Component {
     };
   }
 
-  componentDidMount() {
-    const { token } = localStorage;
-    if (token) {
-      axios
-        .get("/api/v1/users/verify-token", {
-          headers: {
-            authorization: `Bearer ${token}`
-          }
-        })
-        .then(res => this.setState({ user: res.data.user }, this.handleNav));
-    }
-  }
+  // componentDidMount() {
+  //   const { token } = localStorage;
+  //   if (token) {
+  //     axios
+  //       .get("/api/v1/users/verify-token", {
+  //         headers: {
+  //           authorization: `Bearer ${token}`
+  //         }
+  //       })
+  //       .then(res => this.setState({ user: res.data.user }, this.handleNav));
+  //   }
+  // }
 
-  handleNav = () => {
-    this.state.user
-      ? this.setState({ isLoggedIn: true })
-      : his.setState({ isLoggedIn: false });
-  };
+  // handleNav = () => {
+  //   this.props.nameAsProps.user
+  //     ? this.setState({ isLoggedIn: true })
+  //     : this.setState({ isLoggedIn: false });
+  // };
   render() {
+    console.log(this.props.nameAsProps.user, "this is user from store");
     return (
-      <>{this.state.isLoggedIn == false ? <LoggedOutNav /> : <LoggedInNav />}</>
+      <>
+        {this.props.nameAsProps.user == null ? (
+          <LoggedOutNav />
+        ) : (
+          <LoggedInNav />
+        )}
+      </>
     );
   }
 }
 
-export default Nav;
+function mapStateToProps(state) {
+  console.log(state, "in nav");
+  return {
+    nameAsProps: state.user
+  };
+}
+
+export default connect(mapStateToProps)(Nav);

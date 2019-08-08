@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const user = JSON.parse(localStorage.user);
+const user = localStorage.token ? JSON.parse(localStorage.user) : "";
 const id = user._id;
 const token = localStorage.token;
 const url = `http://localhost:3000/api/v1/users/tasks/create/${id}`;

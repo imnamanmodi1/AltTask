@@ -22,6 +22,13 @@ var UserModel = new Schema(
       type: String,
       required: true
     },
+    active: {
+      type: Boolean,
+      default: false
+    },
+    verification: {
+      type: String
+    },
     organisation: {
       type: Schema.Types.ObjectId,
       ref: "Organisation"

@@ -21,20 +21,9 @@ class SignIn extends Component {
   };
 
   handleSubmit = () => {
-    // fetch(url, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({ user: this.state })
-    // })
-    //   .then(res => res.json())
-    //   .then(userInfo => {
-    //     console.log(userInfo);
-    //     this.props.dispatch(userLogin(userInfo));
-    //   });
-    this.props.dispatch(userLogin(this.state));
-    this.props.history.push("/admin");
+    this.props.dispatch(userLogin(this.state)).then(res => {
+      this.props.history.push("/admin");
+    });
   };
 
   render() {
