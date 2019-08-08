@@ -47,7 +47,7 @@ const LoggedOutNav = () => {
   );
 };
 
-const LoggedInNav = () => {
+const LoggedInNav = props => {
   return (
     <div className="navbar" role="navigation" aria-label="main navigation">
       <div className="container">
@@ -69,6 +69,14 @@ const LoggedInNav = () => {
                 to="/"
               >
                 Home
+              </NavLink>
+              <NavLink
+                exact
+                activeClassName="activeNav "
+                className="btn"
+                to="/#"
+              >
+                {`Hi ${props.username}`}
               </NavLink>
             </div>
           </div>
@@ -108,7 +116,13 @@ class Nav extends Component {
   };
   render() {
     return (
-      <>{this.state.isLoggedIn == false ? <LoggedOutNav /> : <LoggedInNav />}</>
+      <>
+        {this.state.isLoggedIn == false ? (
+          <LoggedOutNav />
+        ) : (
+          <LoggedInNav username={this.state.user.firstName} />
+        )}
+      </>
     );
   }
 }
