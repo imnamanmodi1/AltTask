@@ -1,13 +1,28 @@
 var express = require("express");
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcrypt");
-var router = express.Router();
-const secret = "pochiisourdog";
-
 var UserModel = require("../models/user");
+var sgMail = require("@sendgrid/mail");
+var router = express.Router();
 
-/* Function to verify token */
-// let verifyToken = (req, res, next) => {};
+const secret = "pochiisourdog";
+var msg = {
+  from: "modi.naman14@gmail.com",
+  subject: "Your User SignUp Verification link"
+};
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+/* Function to generate Random Hash */
+function generateHash(length) {
+  var result = "";
+  var characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var charactersLength = characters.length;
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
@@ -18,21 +33,34 @@ router.get("/", function(req, res, next) {
 router.post("/register", function(req, res, next) {
   //destructured req.body
   var { email, firstName, lastName, password } = req.body;
+  //generate a unique random HASH & store in variable
+  var randomStr = generateHash(10);
+  //assigning sender's email
+  msg.to = email;
+  //email text
+  msg.text = `Hello User, here's your unique verification link, http://localhost:3000/api/v1/users/email-verification/${randomStr}`;
+
+  //creating user
   UserModel.create(
     {
       email: email,
       firstName: firstName,
       lastName: lastName,
-      password: password
+      password: password,
+      verification: randomStr,
+      active: false
     },
     (err, result) => {
       if (err) next(err);
-      if (result)
+      if (result) {
+        sgMail.send(msg);
         res.json({
           status: 200,
           success: true,
-          message: "USER REGISTERED"
+          message: "USER REGISTERED",
+          verificationMail: "SENT"
         });
+      }
     }
   );
 });
@@ -47,7 +75,7 @@ router.post("/login", (req, res, next) => {
       res.json({ status: 400, success: false, message: "User not found" });
     }
     //if userInfo fetched generate & sign JWT Token
-    if (userInfo) {
+    if (userInfo.active == true) {
       //matching password
       if (bcrypt.compareSync(password, userInfo.password)) {
         //generating & signing JWT Token
@@ -78,6 +106,14 @@ router.post("/login", (req, res, next) => {
           description: "Email ID or Password is invalid, please check."
         });
       }
+    }
+    if (userInfo.active == false) {
+      res.json({
+        status: 400,
+        success: false,
+        message: "USER LOGIN UNSUCCESSFUL",
+        description: "Please verify user's email first"
+      });
     }
   });
 });
