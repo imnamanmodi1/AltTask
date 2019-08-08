@@ -112,7 +112,7 @@ class Nav extends Component {
   handleNav = () => {
     this.state.user
       ? this.setState({ isLoggedIn: true })
-      : his.setState({ isLoggedIn: false });
+      : this.setState({ isLoggedIn: false });
   };
   render() {
     return (

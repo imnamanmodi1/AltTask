@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getTasks } from "../actions/tasks";
 
 class AdminTasks extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  componentDidMount = () => {
+    this.props.dispatch(getTasks());
+  };
   render() {
     return (
       <>
@@ -101,4 +107,4 @@ class AdminTasks extends Component {
   }
 }
 
-export default AdminTasks;
+export default connect()(AdminTasks);
