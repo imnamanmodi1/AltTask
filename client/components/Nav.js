@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 import axios from "axios";
 
 const LoggedOutNav = () => {
@@ -88,21 +89,21 @@ class Nav extends Component {
     };
   }
 
-  componentDidMount() {
-    const { token } = localStorage;
-    if (token) {
-      axios
-        .get("/api/v1/users/verify-token", {
-          headers: {
-            authorization: `Bearer ${token}`
-          }
-        })
-        .then(res => this.setState({ user: res.data.user }, this.handleNav));
-    }
-  }
+  // componentDidMount() {
+  //   const { token } = localStorage;
+  //   if (token) {
+  //     axios
+  //       .get("/api/v1/users/verify-token", {
+  //         headers: {
+  //           authorization: `Bearer ${token}`
+  //         }
+  //       })
+  //       .then(res => this.setState({ user: res.data.user }, this.handleNav));
+  //   }
+  // }
 
   handleNav = () => {
-    this.state.user
+    this.props.nameAsProps.user != null
       ? this.setState({ isLoggedIn: true })
       : this.setState({ isLoggedIn: false });
   };
@@ -113,4 +114,11 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+function mapStateToProps(state) {
+  console.log(state, "in nav");
+  return {
+    nameAsProps: state.getUser
+  };
+}
+
+export default connect(mapStateToProps)(Nav);
