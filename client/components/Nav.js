@@ -102,14 +102,20 @@ class Nav extends Component {
   //   }
   // }
 
-  handleNav = () => {
-    this.props.nameAsProps.user != null
-      ? this.setState({ isLoggedIn: true })
-      : this.setState({ isLoggedIn: false });
-  };
+  // handleNav = () => {
+  //   this.props.nameAsProps.user != null
+  //     ? this.setState({ isLoggedIn: true })
+  //     : this.setState({ isLoggedIn: false });
+  // };
   render() {
     return (
-      <>{this.state.isLoggedIn == false ? <LoggedOutNav /> : <LoggedInNav />}</>
+      <>
+        {this.props.nameAsProps.user == null ? (
+          <LoggedOutNav />
+        ) : (
+          <LoggedInNav />
+        )}
+      </>
     );
   }
 }
