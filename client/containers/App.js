@@ -18,21 +18,19 @@ import AdminMainDashboard from "../components/AdminMainDashboard";
 import UserDashboard from "../components/UserDashboard";
 import AdminAddTask from "../components/AdminAddTask";
 import AdminTasks from "../components/AdminTasks";
+import { getUser } from "../actions/user";
 
 class App extends Component {
   state = {
     token: ""
   };
 
-  // componentDidMount() {
-  //   var token = localStorage.getItem("authToken") || "";
-  //   if (token) {
-  //     this.setState({ token: token });
-  //     this.props.dispatch(getCurrentUser());
-  //   } else {
-  //     this.props.dispatch(noToken());
-  //   }
-  // }
+  componentDidMount() {
+    const { token } = localStorage;
+    if (token) {
+      this.props.dispatch(getUser());
+    }
+  }
 
   render() {
     const { user } = this.props;
@@ -62,7 +60,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    getUser: state
   };
 };
 

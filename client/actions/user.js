@@ -19,4 +19,20 @@ export const userLogin = data => {
   };
 };
 
+export const getUser = () => {
+  return dispatch => {
+    axios
+      .get("/api/v1/users/verify-token", {
+        headers: {
+          authorization: `Bearer ${localStorage.token}`
+        }
+      })
+      .then(res => {
+        console.log(res, "in action aaa");
+        const { data } = res;
+        dispatch({ type: "GET_USER", value: data.user });
+      });
+  };
+};
+
 export const userLogout = () => {};
