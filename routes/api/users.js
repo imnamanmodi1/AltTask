@@ -1,11 +1,19 @@
 var express = require("express");
 var router = express.Router();
 var jwt = require("jsonwebtoken");
+var sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 var Task = require("../../models/task");
 var User = require("../../models/user");
 var Organisation = require("../../models/organisation");
 var Team = require("../../models/team");
+
+var msg = {
+  from: "modi.naman14@gmail.com",
+  subject: "Email Verified Successfully",
+  text: "Your account with AltTask is now verified, keep enjoying AltTask"
+};
 
 /* USER: */
 /* /api/v1/users - GET ALL USERS */
@@ -25,6 +33,9 @@ var Team = require("../../models/team");
 
 /* VERIFY TOKEN */
 /* /api/v1/users/verify-token - GET -> VERIFIES TOKEN & RETURNS THE CURRENT USER FROM TOKEN */
+
+/* VERIFY USER EMAIL */
+/* /api/v1/users/email-verification/:randomHash - VERIFY USER EMAIL FIRST TIME ON SIGNUP */
 
 /* FUNCTION TO VERIFY TOKEN */
 /* This function requires following in request headers -> authorization: Bearer ${token}  */
@@ -245,6 +256,34 @@ router.post("/teams/create/:id", verifyToken, (req, res, next) => {
           success: true,
           message: "NEW TEAM CREATED"
         });
+    }
+  );
+});
+
+/* GET - VERIFY USER EMAIL FIRST TIME ON SIGNUP */
+router.get("/email-verification/:verificationToken", (req, res, next) => {
+  var verificationToken = req.params.verificationToken;
+  User.findOneAndUpdate(
+    { verification: verificationToken },
+    { active: true },
+    (err, user) => {
+      if (err) return next(err);
+      if (user.active == false) {
+        msg.to = user.email;
+        sgMail.send(msg);
+        res.json({
+          status: 200,
+          success: true,
+          message: "USER VERIFIED"
+        });
+      }
+      if (user.active == true) {
+        res.json({
+          status: 400,
+          success: false,
+          message: "USER ALREADY VERIFIED"
+        });
+      }
     }
   );
 });
