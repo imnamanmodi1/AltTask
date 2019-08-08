@@ -124,7 +124,7 @@ class Nav extends Component {
 function mapStateToProps(state) {
   console.log(state, "in nav");
   return {
-    nameAsProps: state.getUser
+    nameAsProps: state.user
   };
 }
 
