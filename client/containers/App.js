@@ -20,20 +20,29 @@ import AdminAddTask from "../components/AdminAddTask";
 import AdminTasks from "../components/AdminTasks";
 import { getUser } from "../actions/user";
 
+const mapStateToProps = state => {
+  return {
+    getUser: state
+  };
+};
+
 class App extends Component {
   state = {
     token: ""
   };
 
   componentDidMount() {
-    const { token } = localStorage;
-    if (token) {
-      this.props.dispatch(getUser());
+    if (localStorage.token) {
+      const { token } = localStorage;
+      if (token) {
+        this.props.dispatch(getUser());
+      }
     }
   }
 
   render() {
-    const { user } = this.props;
+    console.log(this.props.getUser.getUser);
+    const { user } = this.props.getUser.getUser;
     console.log(user, "in app");
     return (
       <Router>
@@ -57,11 +66,5 @@ class App extends Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    getUser: state
-  };
-};
 
 export default connect(mapStateToProps)(App);
