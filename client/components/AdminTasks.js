@@ -14,9 +14,9 @@ class AdminTasks extends Component {
   render() {
     return (
       <>
-        <div className="container has-text-centered column is-half ">
-          <div className="columns is-centered">
-            <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile">
+        <div className="container">
+          <div className="columns is-multiline is-variable is-2 tasks-container">
+            <div className="column is-one-quarter-desktop is-half-tablet">
               <div className="card">
                 <header className="card-header">Task assigned date</header>
                 <div className="card-content content">
@@ -28,7 +28,7 @@ class AdminTasks extends Component {
                 </footer>
               </div>
             </div>
-            <div className="column  is-one-quarter-desktop is-half-tablet is-full-mobile">
+            <div className="column is-one-quarter-desktop is-half-tablet">
               <div className="card">
                 <header className="card-header">Task assigned date</header>
                 <div className="card-content content">
@@ -40,7 +40,7 @@ class AdminTasks extends Component {
                 </footer>
               </div>
             </div>
-            <div className="column  is-one-quarter-desktop is-half-tablet is-full-mobile">
+            <div className="column is-one-quarter-desktop is-half-tablet">
               <div className="card">
                 <header className="card-header">Task assigned date</header>
                 <div className="card-content content">
@@ -52,7 +52,7 @@ class AdminTasks extends Component {
                 </footer>
               </div>
             </div>
-            <div className="column  is-one-quarter-desktop is-half-tablet is-full-mobile">
+            <div className="column is-one-quarter-desktop is-half-tablet">
               <div className="card">
                 <header className="card-header">Task assigned date</header>
                 <div className="card-content content">
@@ -64,7 +64,7 @@ class AdminTasks extends Component {
                 </footer>
               </div>
             </div>
-            <div className="column  is-one-quarter-desktop is-half-tablet is-full-mobile">
+            <div className="column is-one-quarter-desktop is-half-tablet">
               <div className="card">
                 <header className="card-header">Task assigned date</header>
                 <div className="card-content content">
@@ -76,7 +76,7 @@ class AdminTasks extends Component {
                 </footer>
               </div>
             </div>
-            <div className="column  is-one-quarter-desktop is-half-tablet is-full-mobile">
+            <div className="column is-one-quarter-desktop is-half-tablet">
               <div className="card">
                 <header className="card-header">Task assigned date</header>
                 <div className="card-content content">
