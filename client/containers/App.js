@@ -27,10 +27,6 @@ const mapStateToProps = state => {
 };
 
 class App extends Component {
-  state = {
-    token: ""
-  };
-
   componentDidMount() {
     if (localStorage.token) {
       const { token } = localStorage;

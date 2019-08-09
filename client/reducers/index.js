@@ -3,8 +3,7 @@ import user from "./user";
 import getUser from "./getUser";
 
 const rootReducer = combineReducers({
-  user,
-  getUser
+  user
 });
 
 export default rootReducer;
