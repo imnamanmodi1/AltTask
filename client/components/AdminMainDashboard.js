@@ -21,7 +21,7 @@ class AdminMainDashboard extends Component {
       <>
         <div className=" mainDashboard">
           <div className="columns ">
-            <div className="column is-one-quarter ">
+            <div className="column is-one-fifth ">
               <aside className="menu menu-container">
                 <p className="menu-label ">General</p>
                 <ul className="menu-list ">
