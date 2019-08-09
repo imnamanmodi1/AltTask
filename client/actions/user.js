@@ -1,6 +1,4 @@
 import axios from "axios";
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
 
 const url = "http://localhost:3000/user/login";
 
