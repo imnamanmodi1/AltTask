@@ -19,6 +19,12 @@ export const userLogin = data => {
   };
 };
 
+// export const userLogout = () =>{
+//   return dispatch =>{
+
+//   }
+// }
+
 export const getUser = () => {
   return dispatch => {
     axios
