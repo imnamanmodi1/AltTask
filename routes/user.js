@@ -1,6 +1,6 @@
 var express = require("express");
 var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+var bcrypt = require("bcrypt");
 var UserModel = require("../models/user");
 var sgMail = require("@sendgrid/mail");
 var router = express.Router();

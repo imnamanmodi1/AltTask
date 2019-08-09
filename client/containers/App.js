@@ -37,8 +37,8 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.getUser.getUser);
-    const { user } = this.props.getUser.getUser;
+    console.log(this.props);
+    const { user } = this.props;
     console.log(user, "in app");
     return (
       <Router>
