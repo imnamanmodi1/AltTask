@@ -4,18 +4,27 @@ const url = "http://localhost:3000/user/login";
 
 export const userLogin = data => {
   return dispatch => {
-    axios
-      .post(url, data)
-      .then(userInfo => {
-        console.log(userInfo, "in sign in");
-        const { data } = userInfo;
-        dispatch({ type: "USER_LOGIN", value: data.userData, token: data.key });
-        localStorage.setItem("token", userInfo.data.key);
-        localStorage.setItem("user", JSON.stringify(userInfo.data.userData));
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    return new Promise((res, rej) => {
+      axios
+        .post(url, data)
+        .then(userInfo => {
+          console.log(userInfo, "in sign in");
+          if (userInfo.data.status === 200) {
+            res("login success");
+          }
+          const { data } = userInfo;
+          dispatch({
+            type: "USER_LOGIN",
+            value: data.userData,
+            token: data.key
+          });
+          localStorage.setItem("token", userInfo.data.key);
+          localStorage.setItem("user", JSON.stringify(userInfo.data.userData));
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    });
   };
 };
 

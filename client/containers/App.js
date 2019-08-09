@@ -21,10 +21,6 @@ import AdminTasks from "../components/AdminTasks";
 import { getUser } from "../actions/user";
 
 class App extends Component {
-  state = {
-    token: ""
-  };
-
   componentDidMount() {
     const { token } = localStorage;
     if (token) {
