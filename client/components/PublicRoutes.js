@@ -6,16 +6,15 @@ import HomePage from "./HomePage";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 
-export class PublicRoutes extends Component {
+export class PrivateRoutes extends Component {
   render() {
     return (
       <>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
-          <Route render={() => <p>Not found</p>} />
-        </Switch>
+        <Switch />
+        <Route exact path="/" component={HomePage} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+        <Route render={() => <p>Not found</p>} />
       </>
     );
   }
@@ -28,4 +27,4 @@ const mapDispatchToProps = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PublicRoutes);
+)(PrivateRoutes);

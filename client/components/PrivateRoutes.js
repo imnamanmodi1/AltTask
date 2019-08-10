@@ -8,19 +8,16 @@ import AdminMainDashboard from "../components/AdminMainDashboard";
 import UserDashboard from "../components/UserDashboard";
 import AdminAddTask from "../components/AdminAddTask";
 import AdminTasks from "../components/AdminTasks";
-import HomePage from "./HomePage";
 
 export class PrivateRoutes extends Component {
   render() {
     return (
       <>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/admin" component={AdminMainDashboard} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/user" component={UserDashboard} />
-          <Route path="/admin/add-task" component={AdminAddTask} />
-        </Switch>
+        <Switch />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/admin" component={AdminMainDashboard} />
+        <Route path="/user" component={UserDashboard} />
+        <Route path="/admin/add-task" component={AdminAddTask} />
       </>
     );
   }
