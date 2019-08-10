@@ -2,7 +2,9 @@ var express = require("express");
 var router = express.Router();
 var jwt = require("jsonwebtoken");
 var sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(
+  "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"
+);
 
 var Task = require("../../models/task");
 var User = require("../../models/user");

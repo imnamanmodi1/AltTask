@@ -10,7 +10,9 @@ var msg = {
   from: "modi.naman14@gmail.com",
   subject: "Your User SignUp Verification link"
 };
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(
+  "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"
+);
 
 /* Function to generate Random Hash */
 function generateHash(length) {
