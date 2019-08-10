@@ -19,6 +19,8 @@ import UserDashboard from "../components/UserDashboard";
 import AdminAddTask from "../components/AdminAddTask";
 import AdminTasks from "../components/AdminTasks";
 import { getUser } from "../actions/user";
+import PublicRoutes from "../components/PublicRoutes";
+import PrivateRoutes from "../components/PrivateRoutes";
 
 class App extends Component {
   state = {
@@ -33,28 +35,16 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
-    const { user } = this.props;
+    console.log(this.props, "app render");
+    const user = this.props.getUser.user;
+    console.log(user, "second app render");
     console.log(user, "in app");
     return (
-      <Router>
-        <div className="App">
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/admin" component={AdminMainDashboard} />
-            <Route path="/user" component={UserDashboard} />
-            <Route path="/admin/add-task" component={AdminAddTask} />
-            {/* <Route path="/admin/tasks" component={AdminTasks} /> */}
-
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route render={() => <p>Not found</p>} />
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
+      <div className="App">
+        <Nav />
+        {user !== null ? <PrivateRoutes /> : <PublicRoutes />}
+        <Footer />
+      </div>
     );
   }
 }
