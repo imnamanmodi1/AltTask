@@ -2,29 +2,28 @@ import axios from "axios";
 
 const url = "http://localhost:3000/user/login";
 
-export const userLogin = data => {
+export const userLogin = (data, cb) => {
   return dispatch => {
-    return new Promise((res, rej) => {
-      axios
-        .post(url, data)
-        .then(userInfo => {
-          console.log(userInfo, "in sign in");
-          if (userInfo.data.status === 200) {
-            res("login success");
-          }
+    axios
+      .post(url, data)
+      .then(userInfo => {
+        if (userInfo.data.status === 200) {
           const { data } = userInfo;
+          localStorage.setItem("token", userInfo.data.key);
+          localStorage.setItem("user", JSON.stringify(userInfo.data.userData));
           dispatch({
             type: "USER_LOGIN",
             value: data.userData,
             token: data.key
           });
-          localStorage.setItem("token", userInfo.data.key);
-          localStorage.setItem("user", JSON.stringify(userInfo.data.userData));
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    });
+          cb(true);
+        } else {
+          cb(false);
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 };
 

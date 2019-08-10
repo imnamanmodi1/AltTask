@@ -1,6 +1,6 @@
 const initialState = {
   user: null,
-  isLoggedIn: false
+  isLoggedIn: localStorage.token ? true : false
 };
 
 export default function user(state = initialState, action) {
@@ -10,7 +10,7 @@ export default function user(state = initialState, action) {
       return {
         ...state,
         user: { ...action.value, token: action.token },
-        isLoggedIn: true
+        isLoggedIn: action.token ? true : false
       };
     case "USER_LOGOUT":
       return { ...state, user: null, isLoggedIn: false };

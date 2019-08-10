@@ -21,9 +21,14 @@ class SignIn extends Component {
   };
 
   handleSubmit = () => {
-    this.props.dispatch(userLogin(this.state)).then(res => {
-      this.props.history.push("/admin");
-    });
+    console.log(this.props, "hs");
+    this.props.dispatch(
+      userLogin(this.state, success => {
+        if (success) {
+          this.props.history.push("/admin");
+        }
+      })
+    );
   };
 
   render() {
