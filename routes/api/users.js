@@ -66,6 +66,15 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+/* SERVER TEST ROUTE */
+router.get("/verifyServer", (req, res, next) => {
+  res.json({
+    status: 200,
+    success: true,
+    message: "SERVER & APIs are running fine"
+  });
+});
+
 /* VERIFY TOKEN ROUTE TO RETURN USER DETAILS WITH TOKEN VERIFICATION */
 router.get("/verify-token", verifyToken, (req, res, next) => {
   let { user } = req.body;
