@@ -22,64 +22,27 @@ import { getUser } from "../actions/user";
 import PublicRoutes from "../components/PublicRoutes";
 import PrivateRoutes from "../components/PrivateRoutes";
 
-// compares objects
-// receives obj1 and obj2
-// returns true if equal and false if unequal
-function compareObjects(obj1, obj2) {
-  if (!obj1 || !obj2) return false;
-
-  let status = true;
-
-  for (let key in obj1) {
-    if (
-      typeof obj1[key] === typeof obj2[key] &&
-      obj1[key] === obj2[key] &&
-      obj1[key].constructor === obj2[key].constructor
-    )
-      status = true;
-    else {
-      status = false;
-      break;
-    }
-  }
-
-  return status;
-}
-
 class App extends Component {
   state = {
-    token: "",
-    user: null
+    token: ""
   };
 
   componentDidMount() {
-    if (this.props.getUser && this.props.getUser.user)
-      this.setState({ user: this.props.getUser.user });
-
     const { token } = localStorage;
     if (token) {
       this.props.dispatch(getUser());
     }
   }
 
-  componentDidUpdate = prevProps => {
-    console.log("Inside app cdu, ", prevProps, this.props);
-
-    if (!compareObjects(prevProps, this.props)) {
-      if (this.props.getUser && this.props.getUser.user)
-        this.setState({ user: this.props.getUser.user });
-    }
-  };
-
   render() {
-    const user = this.state.user ? this.state.user.user : this.state.user;
-    console.log("inside app render: ", user);
+    console.log(this.props, "app render");
+    const user = this.props.getUser.user;
     console.log(user, "second app render");
     console.log(user, "in app");
     return (
       <div className="App">
         <Nav />
-        {user !== null ? <PrivateRoutes /> : <PublicRoutes />}
+        {user.isLoggedIn ? <PrivateRoutes /> : <PublicRoutes />}
         <Footer />
       </div>
     );

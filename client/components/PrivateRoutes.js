@@ -11,11 +11,11 @@ import AdminTasks from "../components/AdminTasks";
 
 export class PrivateRoutes extends Component {
   render() {
+    console.log("pr called");
     return (
       <>
-        <Switch />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/admin" component={AdminMainDashboard} />
+        <Route exact path="/admin" component={AdminMainDashboard} />
         <Route path="/user" component={UserDashboard} />
         <Route path="/admin/add-task" component={AdminAddTask} />
       </>

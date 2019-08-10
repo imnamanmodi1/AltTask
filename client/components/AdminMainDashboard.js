@@ -17,6 +17,7 @@ class AdminMainDashboard extends Component {
     this.setState({ activeTab: name });
   };
   render() {
+    console.log("adminmaindashboard called");
     return (
       <>
         <div className=" mainDashboard">
