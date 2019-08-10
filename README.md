@@ -23,7 +23,6 @@ $ npm start
 
 View the website at: http://localhost:3000
 
-
 ## User Stories:
 
 > ##### Mentor Name: Prashant
@@ -45,7 +44,7 @@ View the website at: http://localhost:3000
 ### Naman's Stories:
 
 1. Naman should be able to login/register
-2. Naman should be able to see his pendings tasks & deadlines with priorities.
+2. Naman should be able to see his pending tasks & deadlines with priorities.
 3. Naman should be able to add comment to task & mark it as complete when done.
 4. Naman should be able to filter tasks based on priority & date of completion.
 5. Naman should be able to see reports(how productive he is)

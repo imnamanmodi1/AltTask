@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-const url = "http://alttask.xyz/user/login";
+const url = "https://alttask.xyz/user/login";
 
 export const userLogin = data => {
   return dispatch => {

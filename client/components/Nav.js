@@ -55,7 +55,7 @@ const LoggedInNav = props => {
         <div className="navbar-brand">
           <p>
             <NavLink to="/">
-              <p>Alt Task</p>
+              <p>AltTask</p>
             </NavLink>
           </p>
         </div>

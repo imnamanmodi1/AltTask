@@ -21,7 +21,7 @@ class SignUp extends Component {
   };
 
   handleSubmit = () => {
-    const url = "http://alttask.xyz/user/register";
+    const url = "https://alttask.xyz/user/register";
     axios
       .post(url, {
         firstName: this.state.firstName,
