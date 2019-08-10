@@ -33,6 +33,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { user } = this.props;
     console.log(user, "in app");
     return (
