@@ -19,48 +19,77 @@ import UserDashboard from "../components/UserDashboard";
 import AdminAddTask from "../components/AdminAddTask";
 import AdminTasks from "../components/AdminTasks";
 import { getUser } from "../actions/user";
+import PublicRoutes from "../components/PublicRoutes";
+import PrivateRoutes from "../components/PrivateRoutes";
+
+// compares objects
+// receives obj1 and obj2
+// returns true if equal and false if unequal
+function compareObjects(obj1, obj2) {
+  if (!obj1 || !obj2) return false;
+
+  let status = true;
+
+  for (let key in obj1) {
+    if (
+      typeof obj1[key] === typeof obj2[key] &&
+      obj1[key] === obj2[key] &&
+      obj1[key].constructor === obj2[key].constructor
+    )
+      status = true;
+    else {
+      status = false;
+      break;
+    }
+  }
+
+  return status;
+}
+
+class App extends Component {
+  state = {
+    token: "",
+    user: null
+  };
+
+  componentDidMount() {
+    if (this.props.getUser && this.props.getUser.user)
+      this.setState({ user: this.props.getUser.user });
+
+    const { token } = localStorage;
+    if (token) {
+      this.props.dispatch(getUser());
+    }
+  }
+
+  componentDidUpdate = prevProps => {
+    console.log("Inside app cdu, ", prevProps, this.props);
+
+    if (!compareObjects(prevProps, this.props)) {
+      if (this.props.getUser && this.props.getUser.user)
+        this.setState({ user: this.props.getUser.user });
+    }
+  };
+
+  render() {
+    const user = this.state.user ? this.state.user.user : this.state.user;
+    console.log("inside app render: ", user);
+    console.log(user, "second app render");
+    console.log(user, "in app");
+    return (
+      <div className="App">
+        <Nav />
+        {user !== null ? <PrivateRoutes /> : <PublicRoutes />}
+        <Footer />
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = state => {
   return {
     getUser: state
   };
 };
-
-class App extends Component {
-  componentDidMount() {
-    if (localStorage.token) {
-      const { token } = localStorage;
-      if (token) {
-        this.props.dispatch(getUser());
-      }
-    }
-  }
-
-  render() {
-    console.log(this.props);
-    const { user } = this.props;
-    console.log(user, "in app");
-    return (
-      <Router>
-        <div className="App">
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/admin" component={AdminMainDashboard} />
-            <Route path="/user" component={UserDashboard} />
-            <Route path="/admin/add-task" component={AdminAddTask} />
-            {/* <Route path="/admin/tasks" component={AdminTasks} /> */}
-
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route render={() => <p>Not found</p>} />
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
-    );
-  }
-}
 
 export default connect(mapStateToProps)(App);
