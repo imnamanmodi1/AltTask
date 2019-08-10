@@ -21,9 +21,9 @@ class AdminMainDashboard extends Component {
       <>
         <div className=" mainDashboard">
           <div className="columns ">
-            <div className="column is-one-fifth ">
+            <div className="column is-2">
               <aside className="menu menu-container">
-                <p className="menu-label ">General</p>
+                <p className="menu-label ">Admin Panel</p>
                 <ul className="menu-list ">
                   <li className="has-text-left">
                     <NavLink
@@ -93,7 +93,7 @@ class AdminMainDashboard extends Component {
                 </ul>
               </aside>
             </div>
-            <div className="column is-four-fifth">
+            <div className="column is-10">
               {this.state.activeTab === "tasks" ? (
                 <AdminTasks />
               ) : this.state.activeTab === "addTask" ? (
