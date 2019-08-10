@@ -1,6 +1,4 @@
 import axios from "axios";
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
 
 const url = "http://alttask.xyz/user/login";
 
@@ -29,6 +27,12 @@ export const userLogin = data => {
     });
   };
 };
+
+// export const userLogout = () =>{
+//   return dispatch =>{
+
+//   }
+// }
 
 export const getUser = () => {
   return dispatch => {
