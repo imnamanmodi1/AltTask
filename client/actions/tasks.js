@@ -3,7 +3,7 @@ import axios from "axios";
 const user = localStorage.token ? JSON.parse(localStorage.user) : "";
 const id = user._id;
 const token = localStorage.token;
-const url = `http://localhost:3000/api/v1/users/tasks/create/${id}`;
+const url = `http://alttask.xyz/api/v1/users/tasks/create/${id}`;
 const headers = {
   "Content-Type": "application/json",
   Authorization: `Bearer ${localStorage.token}`
@@ -26,7 +26,7 @@ export function addTask(data) {
 export function getTasks() {
   return dispatch => {
     axios
-      .get(`http://localhost:3000/api/v1/users/tasks/${id}`, {
+      .get(`http://alttask.xyz/api/v1/users/tasks/${id}`, {
         headers: headers
       })
       .then(allTasks => {
