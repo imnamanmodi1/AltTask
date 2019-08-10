@@ -11,8 +11,12 @@ class Footer extends Component {
         <footer className="footer">
           <div className="content has-text-centered">
             <p>
-              <strong>AltTask</strong> by{" "}
-              <a href="https://jgthms.com">Askash, Naman, Sourav</a>
+              <strong>
+                <a href="https://alttask.xyz/">AltTask</a>
+              </strong>{" "}
+              by <a href="https://github.com/akslucky619">Askash,</a>
+              <a href="https://github.com/imnamanmodi1">Naman</a>
+              <a href="https://github.com/souravbaranwal">& Sourav</a>
             </p>
           </div>
         </footer>
