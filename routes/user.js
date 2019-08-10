@@ -40,7 +40,7 @@ router.post("/register", function(req, res, next) {
   //assigning sender's email
   msg.to = email;
   //email text
-  msg.text = `Hello User, here's your unique verification link, http://localhost:3000/api/v1/users/email-verification/${randomStr}`;
+  msg.text = `Hello User, here's your unique verification link, http://alttask.xyz/api/v1/users/email-verification/${randomStr}`;
 
   //creating user
   UserModel.create(
