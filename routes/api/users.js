@@ -2,7 +2,9 @@ var express = require("express");
 var router = express.Router();
 var jwt = require("jsonwebtoken");
 var sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(
+  "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"
+);
 
 var Task = require("../../models/task");
 var User = require("../../models/user");
@@ -65,6 +67,15 @@ const verifyToken = (req, res, next) => {
     });
   }
 };
+
+/* SERVER TEST ROUTE */
+router.get("/verifyServer", (req, res, next) => {
+  res.json({
+    status: 200,
+    success: true,
+    message: "SERVER & APIs are running fine"
+  });
+});
 
 /* VERIFY TOKEN ROUTE TO RETURN USER DETAILS WITH TOKEN VERIFICATION */
 router.get("/verify-token", verifyToken, (req, res, next) => {
@@ -146,15 +157,15 @@ router.get("/tasks/:id", verifyToken, (req, res, next) => {
 /* deadline - DATE */
 /* user - AUTOMATIC USER ASSIGNMENT FROM /:id in URL */
 /* POST, CREATE NEW TASKS FOR A PARTICULAR USER */
-router.post("/tasks/create/:id", verifyToken, (req, res, next) => {
-  var id = req.params.id;
+router.post("/tasks/create/", verifyToken, (req, res, next) => {
+  var userId = req.body.user._id;
   var { title, content, deadline } = req.body;
   Task.create(
     {
       title: title,
       content: content,
       deadline: deadline,
-      user: id
+      user: userId
     },
     (err, taskData) => {
       if (err) return next(err);
