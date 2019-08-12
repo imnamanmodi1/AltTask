@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getTasks } from "../actions/tasks";
+import axios from "axios";
+const token = localStorage.token;
 
 class AdminTasks extends Component {
   constructor(props) {
@@ -9,7 +11,18 @@ class AdminTasks extends Component {
   }
 
   componentDidMount = () => {
-    this.props.dispatch(getTasks());
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    };
+    // this.props.dispatch(getTasks());
+    axios
+      .get(`http://localhost:3000/api/v1/users/tasks`, {
+        headers: headers
+      })
+      .then(allTasks => {
+        console.log(allTasks, "in task get action");
+      });
   };
   render() {
     return (
