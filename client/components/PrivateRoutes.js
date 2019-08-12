@@ -15,11 +15,14 @@ export class PrivateRoutes extends Component {
     console.log("pr called");
     return (
       <>
+      <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/dashboard" component={Dashboard} />
         <Route exact path="/admin" component={AdminMainDashboard} />
         <Route path="/user" component={UserDashboard} />
         <Route path="/admin/add-task" component={AdminAddTask} />
+        <Route render={() => <p>Not found</p>} />
+      </Switch>
       </>
     );
   }

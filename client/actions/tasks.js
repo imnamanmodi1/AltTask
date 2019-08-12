@@ -4,10 +4,11 @@ const user = localStorage.user ? localStorage.user : "";
 // const updatedUser = JSON.parse(user);
 const id = user._id;
 const token = localStorage.token;
-const url = `https://alttask.xyz/api/v1/users/tasks/create/${id}`;
+console.log(token, "in add t action")
+const url = `http://localhost:3000/api/v1/users/tasks/create/${id}`;
 const headers = {
   "Content-Type": "application/json",
-  Authorization: `Bearer ${localStorage.token}`
+  "Authorization": `Bearer ${token}`
 };
 
 export function addTask(data) {

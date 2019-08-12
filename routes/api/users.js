@@ -165,7 +165,7 @@ router.post("/tasks/create/:id", verifyToken, (req, res, next) => {
       title: title,
       content: content,
       deadline: deadline,
-      user: id
+      assignedTo: []
     },
     (err, taskData) => {
       if (err) return next(err);

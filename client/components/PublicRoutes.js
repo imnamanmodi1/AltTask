@@ -10,10 +10,12 @@ export class PrivateRoutes extends Component {
   render() {
     return (
       <>
+      <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
         <Route render={() => <p>Not found</p>} />
+      </Switch>
       </>
     );
   }

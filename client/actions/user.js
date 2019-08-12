@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://alttask.xyz/user/login";
+const url = "http://localhost:3000/user/login";
 
 export const userLogin = data => {
   return dispatch => {
@@ -37,7 +37,7 @@ export const userLogin = data => {
 export const getUser = () => {
   return dispatch => {
     axios
-      .get("https://alttask.xyz", {
+      .get("/api/v1/users/verify-token", {
         headers: {
           authorization: `Bearer ${localStorage.token}`
         }
