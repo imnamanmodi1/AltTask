@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const user = localStorage.user ? JSON.parse(localStorage.user) : "";
+const user = localStorage.user ? localStorage.user : "";
+// const updatedUser = JSON.parse(user);
 const id = user._id;
 const token = localStorage.token;
 const url = `https://alttask.xyz/api/v1/users/tasks/create/${id}`;
