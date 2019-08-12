@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:3000/user/login";
+const url = "http://alttask.xyz/user/login";
 
 export const userLogin = (data, cb) => {
   return dispatch => {
