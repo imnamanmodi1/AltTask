@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const user = localStorage.user ? localStorage.user : "";
-const updatedUser = JSON.parse(user);
+const updatedUser = user ? localStorage.parse(user) : ""
 const id = updatedUser._id;
 const token = localStorage.token;
 console.log(token, "in add t action")
