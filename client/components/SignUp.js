@@ -114,6 +114,7 @@ class SignUp extends Component {
                 </span>
               </p>
             </div>
+            <p>A verification link will be sent .</p>
             <div className="field is-grouped is-grouped-left">
               <p className="control">
                 <button onClick={this.handleSubmit} className="btn">
