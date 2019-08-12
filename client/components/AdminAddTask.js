@@ -9,7 +9,8 @@ class AdminAddTask extends Component {
       title: "",
       content: "",
       deadline: "",
-      user: ""
+      user: "",
+      message: ""
     };
   }
 
@@ -23,6 +24,9 @@ class AdminAddTask extends Component {
     const { title, content, deadline, user } = this.state;
     const data = { title, content, deadline, user };
     this.props.dispatch(addTask(data));
+    if (this.state.title != "") {
+      this.setState({ message: "task assigned" });
+    }
   };
 
   render() {
@@ -94,6 +98,7 @@ class AdminAddTask extends Component {
                 </div>
               </div>
             </div>
+            <p>{this.state.message}</p>
             <div className="field is-grouped is-grouped-left">
               <p className="control">
                 <button onClick={this.handleAssign} className="btn">
