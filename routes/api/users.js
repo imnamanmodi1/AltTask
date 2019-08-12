@@ -130,9 +130,10 @@ router.get("/:id", verifyToken, (req, res, next) => {
 });
 
 /* GET ALL TASKS OF PARTICULAR USER */
-router.get("/tasks/:id", verifyToken, (req, res, next) => {
-  var id = req.params.id;
-  Task.find({ user: id }, (err, filteredTasks) => {
+router.get("/tasks/", verifyToken, (req, res, next) => {
+  var userId = req.body.user._id;
+  console.log(user, "this is user");
+  Task.find({ user: userId }, (err, filteredTasks) => {
     if (err) {
       res.json({
         status: 400,
