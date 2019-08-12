@@ -71,6 +71,9 @@ const LoggedInNav = props => {
               >
                 Home
               </NavLink>
+              <NavLink activeClassName="activeNav " className="btn" to="/admin">
+                Dashboard
+              </NavLink>
             </div>
           </div>
         </div>
