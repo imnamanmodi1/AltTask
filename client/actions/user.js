@@ -37,7 +37,7 @@ export const userLogin = data => {
 export const getUser = () => {
   return dispatch => {
     axios
-      .get("/api/v1/users/verify-token", {
+      .get("https://alttask.xyz", {
         headers: {
           authorization: `Bearer ${localStorage.token}`
         }
