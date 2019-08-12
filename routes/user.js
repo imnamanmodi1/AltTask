@@ -78,6 +78,14 @@ router.post("/login", (req, res, next) => {
     if (err) {
       res.json({ status: 400, success: false, message: "USER NOT FOUND" });
     }
+    // error handling for not userInfo
+    if (!userInfo) {
+      return res.json({
+        status: 400,
+        success: false,
+        message: "User not found"
+      });
+    }
     //if userInfo fetched generate & sign JWT Token
     if (userInfo !== null) {
       if (userInfo.active == true) {
