@@ -7,7 +7,7 @@ class AdminAddTask extends Component {
     super(props);
     this.state = {
       title: "",
-      description: "",
+      content: "",
       deadline: "",
       user: ""
     };
@@ -20,8 +20,8 @@ class AdminAddTask extends Component {
   };
 
   handleAssign = () => {
-    const { title, description, deadline, user } = this.state;
-    const data = { title, description, deadline, user };
+    const { title, content, deadline, user } = this.state;
+    const data = { title, content, deadline, user };
     this.props.dispatch(addTask(data));
   };
 
@@ -50,7 +50,7 @@ class AdminAddTask extends Component {
                   placeholder="Task Content"
                   autoComplete="new-password"
                   onChange={this.handleChange}
-                  name="description"
+                  name="content"
                 />
               </div>
             </div>

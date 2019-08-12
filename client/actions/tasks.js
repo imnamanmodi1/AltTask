@@ -1,17 +1,18 @@
 import axios from "axios";
 
 const user = localStorage.user ? localStorage.user : "";
-// const updatedUser = JSON.parse(user);
-const id = user._id;
+const updatedUser = JSON.parse(user);
+const id = updatedUser._id;
 const token = localStorage.token;
-const url = `https://alttask.xyz/api/v1/users/tasks/create/${id}`;
+console.log(token, "in add t action")
+const url = `http://localhost:3000/api/v1/users/tasks/create/`;
 const headers = {
   "Content-Type": "application/json",
-  Authorization: `Bearer ${localStorage.token}`
+  Authorization: `Bearer ${token}`
 };
 
 export function addTask(data) {
-  console.log(user._id);
+  console.log(updatedUser._id);
   return dispatch => {
     axios
       .post(url, data, {
