@@ -157,15 +157,15 @@ router.get("/tasks/:id", verifyToken, (req, res, next) => {
 /* deadline - DATE */
 /* user - AUTOMATIC USER ASSIGNMENT FROM /:id in URL */
 /* POST, CREATE NEW TASKS FOR A PARTICULAR USER */
-router.post("/tasks/create/:id", verifyToken, (req, res, next) => {
-  var id = req.params.id;
+router.post("/tasks/create/", verifyToken, (req, res, next) => {
+  var userId = req.body.user._id;
   var { title, content, deadline } = req.body;
   Task.create(
     {
       title: title,
       content: content,
       deadline: deadline,
-      assignedTo: []
+      user: userId
     },
     (err, taskData) => {
       if (err) return next(err);
