@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getTasks } from "../actions/tasks";
 
+
 class AdminTasks extends Component {
   constructor(props) {
     super(props);
@@ -9,8 +10,9 @@ class AdminTasks extends Component {
   }
 
   componentDidMount = () => {
-    this.props.dispatch(getTasks());
+    this.props.dispatch(getTasks())
   };
+
   render() {
     return (
       <>

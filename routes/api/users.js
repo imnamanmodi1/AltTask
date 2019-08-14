@@ -158,7 +158,8 @@ router.get("/tasks/:id", verifyToken, (req, res, next) => {
 /* user - AUTOMATIC USER ASSIGNMENT FROM /:id in URL */
 /* POST, CREATE NEW TASKS FOR A PARTICULAR USER */
 router.post("/tasks/create/", verifyToken, (req, res, next) => {
-  var userId = req.body.user._id;
+  var userId = req.body.user._id.split(",");
+  req.body.user._id = userId;
   var { title, content, deadline } = req.body;
   Task.create(
     {
@@ -297,6 +298,34 @@ router.get("/email-verification/:verificationToken", (req, res, next) => {
       }
     }
   );
+});
+
+// get all info on user its tasks, organisation and teams he is part of
+
+router.get("allInfo/:id", (req, res, next) => {
+  var id = req.params.id
+  User.findById(id).populate({
+    path:"tasks",
+    populate:{
+      path:"user"
+    }.populate('organisation').populate('teams')
+    .exec((err, user)=>{
+      if(err) return next(err);
+      if(user){
+        res.json({
+          status:200,
+          success: true,
+          message: "User is available"
+        })
+      }
+      if(!user)
+      res.json({
+        status: 400,
+        success: false,
+        message: "User not found"
+      })
+    })
+  })
 });
 
 module.exports = router;
