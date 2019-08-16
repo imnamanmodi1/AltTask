@@ -300,6 +300,7 @@ router.get("/email-verification/:verificationToken", (req, res, next) => {
   );
 });
 
+
 // get all info on user its tasks, organisation and teams he is part of
 
 router.get("allInfo/:id", (req, res, next) => {
@@ -327,5 +328,8 @@ router.get("allInfo/:id", (req, res, next) => {
     })
   })
 });
+
+
+
 
 module.exports = router;

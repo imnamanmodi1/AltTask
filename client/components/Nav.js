@@ -8,11 +8,11 @@ const LoggedOutNav = () => {
     <div className="navbar" role="navigation" aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand">
-          <p>
+          <span>
             <NavLink to="/">
               <p>Alt Task</p>
             </NavLink>
-          </p>
+          </span>
         </div>
 
         <div className="navbar-end">
@@ -53,11 +53,11 @@ const LoggedInNav = props => {
     <div className="navbar" role="navigation" aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand">
-          <p>
+          <span>
             <NavLink to="/">
               <p>AltTask</p>
             </NavLink>
-          </p>
+          </span>
         </div>
 
         <div className="navbar-end">
