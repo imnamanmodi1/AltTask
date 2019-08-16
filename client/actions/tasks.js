@@ -4,7 +4,7 @@ const user = localStorage.user ? localStorage.user : "";
 const updatedUser = user ? JSON.parse(user) : ""
 const id = updatedUser._id;
 const token = localStorage.token;
-const url = `http://localhost:3000/api/v1/users/tasks/create/`;
+const url = `http://localhost:3000/api/v1/users/tasks/create/${id}`;
 const headers = {
   "Content-Type": "application/json",
   authorization: `Bearer ${token}`
@@ -29,11 +29,12 @@ export function addTask(data) {
 export function getTasks() {
   return dispatch => {
     axios
-      .get(`https://alttask.xyz/api/v1/users/tasks/${id}`, {
+      .get(`http://localhost:3000/api/v1/users/tasks/${id}`, {
         headers: headers
       })
       .then(allTasks => {
         console.log(allTasks, "in task get action");
+        dispatch({type:"GET_TASKS", payload: allTasks.data.tasks})
       });
   };
 }

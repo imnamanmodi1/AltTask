@@ -27,7 +27,6 @@ class AdminMainDashboard extends Component {
                 <ul className="menu-list ">
                   <li className="has-text-left">
                     <NavLink
-                    to=''
                       exact
                       className={
                         this.state.activeTab === "dashboard" ? "is-active" : ""
@@ -41,7 +40,6 @@ class AdminMainDashboard extends Component {
                 <ul className="menu-list ">
                   <li className="has-text-left">
                     <NavLink
-                    to=''
                       exact
                       className={
                         this.state.activeTab === "organization"
@@ -57,7 +55,6 @@ class AdminMainDashboard extends Component {
                 <ul className="menu-list ">
                   <li className="has-text-left">
                     <NavLink
-                    to=''
                       exact
                       className={
                         this.state.activeTab === "teams" ? "is-active" : ""
@@ -71,7 +68,6 @@ class AdminMainDashboard extends Component {
                 <ul className="menu-list ">
                   <li className="has-text-left">
                     <NavLink
-                    to=''
                       exact
                       className={
                         this.state.activeTab === "addTask" ? "is-active" : ""
@@ -85,7 +81,6 @@ class AdminMainDashboard extends Component {
                 <ul className="menu-list">
                   <li className="has-text-left">
                     <NavLink
-                    to=''
                       exact
                       onClick={() => this.handleClick("tasks")}
                       className={

@@ -97,4 +97,9 @@ class AdminTasks extends Component {
   }
 }
 
-export default connect()(AdminTasks);
+const mapStateToProps = state => {
+  return {
+    tasks: state.taskReducer
+  };
+};
+export default connect(mapStateToProps)(AdminTasks);

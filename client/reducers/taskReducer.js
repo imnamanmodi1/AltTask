@@ -4,6 +4,7 @@ const initialState = {
 };
 
 export default function task(state = initialState, action) {
+  console.log(action, state, "in reducer")
   switch (action.type) {
     case "ADD_TASK":
       return {
@@ -14,7 +15,7 @@ export default function task(state = initialState, action) {
     case "GET_TASKS":
       return {
         ...state,
-        task: action.task
+        task: action.payload
       };
     default:
       return state;
