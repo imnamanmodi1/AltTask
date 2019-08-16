@@ -93,7 +93,7 @@ router.post("/login", (req, res, next) => {
         if (bcrypt.compareSync(password, userInfo.password)) {
           //generating & signing JWT Token
           const token = jwt.sign({ id: userInfo._id }, secret, {
-            expiresIn: "1h"
+            expiresIn: "24h"
           });
           //sending JWT Token in response, when LOGIN SUCCESSFUL
           res.json({

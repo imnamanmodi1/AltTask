@@ -11,7 +11,7 @@ const headers = {
 };
 
 export function addTask(data) {
-  console.log(updatedUser._id);
+  console.log(id);
   console.log(token, "in add t action")
 
   return dispatch => {
