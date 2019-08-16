@@ -13,10 +13,9 @@ var TaskModel = new Schema(
     deadline: {
       type: Date
     },
-    user: [{
-      type: Schema.Types.ObjectId,
-      ref: "User"
-    }]
+    user: {
+      type: String      
+    }
   },
   { timestamps: true }
 );
