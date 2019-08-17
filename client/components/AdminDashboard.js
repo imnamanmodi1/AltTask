@@ -36,6 +36,23 @@ class AdminDashboard extends Component {
               display:true,
               text: "Task History",
               fontSize:25
+            },
+            legend:{
+              display:true,
+              position:"bottom"
+            }
+          }}
+        />
+        <Pie data={this.state.chartData}
+          options={{
+            title:{
+              display:true,
+              text: "Task History",
+              fontSize:25
+            },
+            legend:{
+              display:true,
+              position:"bottom"
             }
           }}
         />
