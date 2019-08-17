@@ -13,25 +13,24 @@ class AdminTasks extends Component {
 
   componentDidMount = () => {
     this.props.dispatch(getTasks())
-    this.setState({tasks: this.props.tasks.task})
+    // this.setState({tasks: this.props.tasks.task})
+    this.forceUpdate()
   };
 
   render() {
     const task = this.props.tasks.task
-    console.log(task)
+    console.log(task, "task")
     return (
       <>
-      
         <div className="container">
-          {/* {task !==[]?task.map((task, i)=>{ */}
-
-          <div className="columns is-multiline is-variable is-2 tasks-container">
+          {task && task.length !== 0 ? task.map((task, i) => (
+          <div key={i} className="columns is-multiline is-variable is-2 tasks-container">
             <div className="column is-one-quarter-desktop is-half-tablet">
               <div className="card">
-                <header className="card-header">Task</header>
+                <header className="card-header">{task.deadline.slice(0, 10)}</header>
                 <div className="card-content content">
-                  <h2 className="card-title">Task Title</h2>
-                  <p className="card-text">Task description</p>
+                  <h2 className="card-title">{task.title}</h2>
+                  <p className="card-text">{task.content}</p>
                 </div>
                 <footer className="card-footer">
                   <a href="User profile">User profile</a>
@@ -39,9 +38,8 @@ class AdminTasks extends Component {
               </div>
             </div>
           </div>
-          {/* // }):(
-          //   ""
-          // )} */}
+          )):(
+            "" )} 
         </div>
       </>
     );
