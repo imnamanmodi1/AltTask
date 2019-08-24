@@ -91,38 +91,38 @@ View the website at: http://localhost:3000
         *   **src/api/applications.js**
             * endpoint - Base endpoint for applications routes
         *   **src/api/bug.js**
-            *   - endpoint - Base endpoint for bug routes
+            * endpoint - Base endpoint for bug routes
         *   **src/api/company.js**
-            *   - endpoint - Base endpoint for company routes
+            * endpoint - Base endpoint for company routes
         *   **src/api/faq.js**
-            *   - endpoint - Base ednpoint for faq routes
+            * endpoint - Base ednpoint for faq routes
         *   **src/api/favourite.js**
-            *   - endpoint - Base ednpoint for favourite routes
+            * endpoint - Base ednpoint for favourite routes
         *   **src/api/http.js**
-            *   - requests - Requests mapping abstraction
+            * requests - Requests mapping abstraction
         *   **src/api/location.js**
-            *   - endpoint - Base ednpoint for location routes
+            * endpoint - Base ednpoint for location routes
         *   **src/api/meetup.js**
-            *   - endpoint - Base ednpoint for meetup routes
+            * endpoint - Base ednpoint for meetup routes
         *   **src/api/notifications.js**
-            *   - endpoint - Base ednpoint for notifications routes
+            * endpoint - Base ednpoint for notifications routes
         *   **src/api/reference.js**
-            *   - endpoint - Base ednpoint for reference routes
+            * endpoint - Base ednpoint for reference routes
         *   **src/api/skill.js**
-            *   - endpoint - Base ednpoint for skill routes
+            * endpoint - Base ednpoint for skill routes
         *   **src/api/university.js**
-            *   - endpoint - Base ednpoint for university routes
+            * endpoint - Base ednpoint for university routes
         *   **src/api/user.js**
-            *   - endpoint - Base ednpoint for user routes
+            * endpoint - Base ednpoint for user routes
         *   **src/constants.js**
-            *   - currentOnboardingPage - Mapping from variable to string to prevent getting string wrong
-            *   - authorization - Mapping from variable to string to prevent getting string wrong
-            *   - token - Mapping from variable to string to prevent getting string wrong
-            *   - currentUser - Mapping from variable to string to prevent getting string wrong
-            *   - loggedIn - Mapping from variable to string to prevent getting string wrong
-            *   - pageOne - Mapping from variable to string to prevent getting string wrong
-            *   - signupData - Mapping from variable to string to prevent getting string wrong
-            *   - facebookDetails - Mapping from variable to string to prevent getting string wrong
+            * currentOnboardingPage - Mapping from variable to string to prevent getting string wrong
+            * authorization - Mapping from variable to string to prevent getting string wrong
+            * token - Mapping from variable to string to prevent getting string wrong
+            * currentUser - Mapping from variable to string to prevent getting string wrong
+            * loggedIn - Mapping from variable to string to prevent getting string wrong
+            * pageOne - Mapping from variable to string to prevent getting string wrong
+            * signupData - Mapping from variable to string to prevent getting string wrong
+            * facebookDetails - Mapping from variable to string to prevent getting string wrong
             *   - selectedLocation - Mapping from variable to string to prevent getting string wrong
             *   - previousLocation - Mapping from variable to string to prevent getting string wrong
             *   - currentLocation - Mapping from variable to string to prevent getting string wrong
