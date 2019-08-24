@@ -123,38 +123,38 @@ View the website at: http://localhost:3000
             * pageOne - Mapping from variable to string to prevent getting string wrong
             * signupData - Mapping from variable to string to prevent getting string wrong
             * facebookDetails - Mapping from variable to string to prevent getting string wrong
-            *   - selectedLocation - Mapping from variable to string to prevent getting string wrong
-            *   - previousLocation - Mapping from variable to string to prevent getting string wrong
-            *   - currentLocation - Mapping from variable to string to prevent getting string wrong
-            *   - SEARCH_DELAY - how much to wait before last keypress to search
-            *   - ALGOLIA_APP_ID - Algolia's app id
-            *   - ALGOLIA_SEARCH_API_KEY - Algolia search API key (not used)
-            *   - ALGOLIA_USER_INDEX - Mapping to user index name
-            *   - ALGOLIA_LOCATION_INDEX - Mapping to location index name
-            *   - ALGOLIA_SKILL_INDEX - Mapping to skill index name
-            *   - ALGOLIA_COMPANY_INDEX - Mapping to company index name
-            *   - ALGOLIA_UNIVERSITY_INDEX - Mapping to university index name
-            *   - FACEBOOK_APP_ID - Facebook's app ID
-            *   - DEFAULT_IMAGES - Default images for skills, locations, universities and companies
-            *   - mapIndexToReadableTitle - Mapping from algolia indexes to a readable title
-            *   - mapReadableTitleToIndex - Mapping from readable title to algolia index
-            *   - mapTitleToSingularTitle - Mapping from titles to singular titles
-            *   - mapSingularTitleToPlural - Mapping from Singular to plural
-            *   - mapDegreeWithSubTypes - Mapping from degree type to subtypes
-            *   - mapDegreeToRanking - Mapping from degree type to ranking
-            *   - mapSearchTitleToPlural - Mapping from Search page titles to plural
-            *   - months - Month list
+            * selectedLocation - Mapping from variable to string to prevent getting string wrong
+            * previousLocation - Mapping from variable to string to prevent getting string wrong
+            * currentLocation - Mapping from variable to string to prevent getting string wrong
+            * SEARCH_DELAY - how much to wait before last keypress to search
+            * ALGOLIA_APP_ID - Algolia's app id
+            * ALGOLIA_SEARCH_API_KEY - Algolia search API key (not used)
+            * ALGOLIA_USER_INDEX - Mapping to user index name
+            * ALGOLIA_LOCATION_INDEX - Mapping to location index name
+            * ALGOLIA_SKILL_INDEX - Mapping to skill index name
+            * ALGOLIA_COMPANY_INDEX - Mapping to company index name
+            * ALGOLIA_UNIVERSITY_INDEX - Mapping to university index name
+            * FACEBOOK_APP_ID - Facebook's app ID
+            * DEFAULT_IMAGES - Default images for skills, locations, universities and companies
+            * mapIndexToReadableTitle - Mapping from algolia indexes to a readable title
+            * mapReadableTitleToIndex - Mapping from readable title to algolia index
+            * mapTitleToSingularTitle - Mapping from titles to singular titles
+            * mapSingularTitleToPlural - Mapping from Singular to plural
+            * mapDegreeWithSubTypes - Mapping from degree type to subtypes
+            * mapDegreeToRanking - Mapping from degree type to ranking
+            * mapSearchTitleToPlural - Mapping from Search page titles to plural
+            * months - Month list
         *   **src/messages.js**
             *   - errors - Error messages mapping
             *   - success - Success messages mapping
         *   **src/notificationSubscription.js**
-            *   - convertedVapidKey - VAPID key on Uint8Array
+            * convertedVapidKey - VAPID key on Uint8Array
         *   **src/routes/index.js**
-            *   - protectedRoutes - Routes mapping for authenticated users
-            *   - openRoutes - Routes mapping for non-authenticated users
+            * protectedRoutes - Routes mapping for authenticated users
+            * openRoutes - Routes mapping for non-authenticated users
         *   **src/routing/util.js**
-            *   - singlePathRoutesMap - Mapping for single path and their loader - -
-            *   - doublePathRoutesMap - Mapping for double path and their loader
+            * singlePathRoutesMap - Mapping for single path and their loader - -
+            * doublePathRoutesMap - Mapping for double path and their loader
         *   **src/schemas/applyPage1Schema.js**
             *   - schema - The shcema used for validation on the apply page 1
         *   **src/schemas/editProfileSchema.js**
