@@ -86,10 +86,10 @@ View the website at: http://localhost:3000
     *   ### **Variable Glossary**
 
         *   **src/api/algolia.js**
-            *  - endpoint - Endpoint for algolia pipe on backend
-            *  - api - Api functions mapped
+            * endpoint - Endpoint for algolia pipe on backend
+            * api - Api functions mapped
         *   **src/api/applications.js**
-            *   - endpoint - Base endpoint for applications routes
+            * endpoint - Base endpoint for applications routes
         *   **src/api/bug.js**
             *   - endpoint - Base endpoint for bug routes
         *   **src/api/company.js**
